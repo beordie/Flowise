@@ -100,8 +100,8 @@ const Variables = () => {
     const addNew = () => {
         const dialogProp = {
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add',
+            cancelButtonName: '取消',
+            confirmButtonName: '增加',
             customBtnId: 'btn_confirmAddingVariable',
             data: {}
         }
@@ -112,8 +112,8 @@ const Variables = () => {
     const edit = (variable) => {
         const dialogProp = {
             type: 'EDIT',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Save',
+            cancelButtonName: '取消',
+            confirmButtonName: '更新',
             data: variable
         }
         setVariableDialogProps(dialogProp)
@@ -122,10 +122,10 @@ const Variables = () => {
 
     const deleteVariable = async (variable) => {
         const confirmPayload = {
-            title: `Delete`,
-            description: `Delete variable ${variable.name}?`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel'
+            title: `删除`,
+            description: `确认删除变量 ${variable.name}?`,
+            confirmButtonName: '删除',
+            cancelButtonName: '取消'
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -200,9 +200,9 @@ const Variables = () => {
                     <ErrorBoundary error={error} />
                 ) : (
                     <Stack flexDirection='column' sx={{ gap: 3 }}>
-                        <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Variables' title='Variables'>
+                        <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Variables' title='变量'>
                             <Button variant='outlined' sx={{ borderRadius: 2, height: '100%' }} onClick={() => setShowHowToDialog(true)}>
-                                How To Use
+                                使用方法
                             </Button>
                             <StyledButton
                                 variant='contained'
@@ -211,7 +211,7 @@ const Variables = () => {
                                 startIcon={<IconPlus />}
                                 id='btn_createVariable'
                             >
-                                Add Variable
+                                创建变量
                             </StyledButton>
                         </ViewHeader>
                         {!isLoading && variables.length === 0 ? (
@@ -223,7 +223,7 @@ const Variables = () => {
                                         alt='VariablesEmptySVG'
                                     />
                                 </Box>
-                                <div>No Variables Yet</div>
+                                <div>没有变量</div>
                             </Stack>
                         ) : (
                             <TableContainer
@@ -240,11 +240,11 @@ const Variables = () => {
                                         }}
                                     >
                                         <TableRow>
-                                            <StyledTableCell>Name</StyledTableCell>
-                                            <StyledTableCell>Value</StyledTableCell>
-                                            <StyledTableCell>Type</StyledTableCell>
-                                            <StyledTableCell>Last Updated</StyledTableCell>
-                                            <StyledTableCell>Created</StyledTableCell>
+                                            <StyledTableCell>变量名</StyledTableCell>
+                                            <StyledTableCell>默认值</StyledTableCell>
+                                            <StyledTableCell>类型</StyledTableCell>
+                                            <StyledTableCell>更新时间</StyledTableCell>
+                                            <StyledTableCell>创建时间</StyledTableCell>
                                             <StyledTableCell> </StyledTableCell>
                                             <StyledTableCell> </StyledTableCell>
                                         </TableRow>
@@ -346,16 +346,12 @@ const Variables = () => {
                                                             {moment(variable.createdDate).format('MMMM Do, YYYY')}
                                                         </StyledTableCell>
                                                         <StyledTableCell>
-                                                            <IconButton title='Edit' color='primary' onClick={() => edit(variable)}>
+                                                            <IconButton title='更新' color='primary' onClick={() => edit(variable)}>
                                                                 <IconEdit />
                                                             </IconButton>
                                                         </StyledTableCell>
                                                         <StyledTableCell>
-                                                            <IconButton
-                                                                title='Delete'
-                                                                color='error'
-                                                                onClick={() => deleteVariable(variable)}
-                                                            >
+                                                            <IconButton title='删除' color='error' onClick={() => deleteVariable(variable)}>
                                                                 <IconTrash />
                                                             </IconButton>
                                                         </StyledTableCell>

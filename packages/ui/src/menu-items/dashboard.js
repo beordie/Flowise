@@ -23,7 +23,7 @@ const dashboard = {
     children: [
         {
             id: 'chatflows',
-            title: 'Chatflows',
+            title: '对话流',
             type: 'item',
             url: '/chatflows',
             icon: icons.IconHierarchy,
@@ -31,7 +31,7 @@ const dashboard = {
         },
         {
             id: 'agentflows',
-            title: 'Agentflows',
+            title: '代理流',
             type: 'item',
             url: '/agentflows',
             icon: icons.IconUsersGroup,
@@ -40,7 +40,7 @@ const dashboard = {
         },
         {
             id: 'marketplaces',
-            title: 'Marketplaces',
+            title: '模板',
             type: 'item',
             url: '/marketplaces',
             icon: icons.IconBuildingStore,
@@ -48,7 +48,7 @@ const dashboard = {
         },
         {
             id: 'tools',
-            title: 'Tools',
+            title: '工具',
             type: 'item',
             url: '/tools',
             icon: icons.IconTool,
@@ -56,7 +56,7 @@ const dashboard = {
         },
         {
             id: 'assistants',
-            title: 'Assistants',
+            title: '助理',
             type: 'item',
             url: '/assistants',
             icon: icons.IconRobot,
@@ -64,7 +64,7 @@ const dashboard = {
         },
         {
             id: 'credentials',
-            title: 'Credentials',
+            title: '证书',
             type: 'item',
             url: '/credentials',
             icon: icons.IconLock,
@@ -72,7 +72,7 @@ const dashboard = {
         },
         {
             id: 'variables',
-            title: 'Variables',
+            title: '变量',
             type: 'item',
             url: '/variables',
             icon: icons.IconVariable,
@@ -88,7 +88,7 @@ const dashboard = {
         },
         {
             id: 'document-stores',
-            title: 'Document Stores',
+            title: '文档存储',
             type: 'item',
             url: '/document-stores',
             icon: icons.IconFiles,

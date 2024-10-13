@@ -301,10 +301,10 @@ const DocumentStoreDetails = () => {
             id: documentStore.id
         }
         const dialogProp = {
-            title: 'Edit Document Store',
+            title: '更新文档存储',
             type: 'EDIT',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Update',
+            cancelButtonName: '取消',
+            confirmButtonName: '更新',
             data: data
         }
         setDialogProps(dialogProp)
@@ -373,11 +373,11 @@ const DocumentStoreDetails = () => {
                                 startIcon={<IconPlus />}
                                 onClick={listLoaders}
                             >
-                                Add Document Loader
+                                添加文档加载器
                             </StyledButton>
                             {(documentStore?.status === 'STALE' || documentStore?.status === 'UPSERTING') && (
                                 <Button variant='outlined' sx={{ mr: 2 }} startIcon={<IconRefresh />} onClick={onConfirm}>
-                                    Refresh
+                                    刷新
                                 </Button>
                             )}
                             {documentStore?.status === 'UPSERTING' && (
@@ -481,14 +481,14 @@ const DocumentStoreDetails = () => {
                                         alt='doc_store_details_emptySVG'
                                     />
                                 </Box>
-                                <div>No Document Added Yet</div>
+                                <div>没有文档</div>
                                 <StyledButton
                                     variant='contained'
                                     sx={{ borderRadius: 2, height: '100%', mt: 2, color: 'white' }}
                                     startIcon={<IconPlus />}
                                     onClick={listLoaders}
                                 >
-                                    Add Document Loader
+                                    添加文档加载器
                                 </StyledButton>
                             </Stack>
                         ) : (

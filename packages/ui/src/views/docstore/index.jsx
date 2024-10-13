@@ -78,10 +78,10 @@ const Documents = () => {
 
     const addNew = () => {
         const dialogProp = {
-            title: 'Add New Document Store',
+            title: '创建文档存储',
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add'
+            cancelButtonName: '取消',
+            confirmButtonName: '创建'
         }
         setDialogProps(dialogProp)
         setShowDialog(true)
@@ -145,7 +145,7 @@ const Documents = () => {
                 <ErrorBoundary error={error} />
             ) : (
                 <Stack flexDirection='column' sx={{ gap: 3 }}>
-                    <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Name' title='Document Store'>
+                    <ViewHeader onSearchChange={onSearchChange} search={true} searchPlaceholder='Search Name' title='文档存储'>
                         <ToggleButtonGroup
                             sx={{ borderRadius: 2, maxHeight: 40 }}
                             value={view}
@@ -185,7 +185,7 @@ const Documents = () => {
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
                         >
-                            Add New
+                            创建
                         </StyledButton>
                     </ViewHeader>
                     {!view || view === 'card' ? (
@@ -220,12 +220,12 @@ const Documents = () => {
                                 >
                                     <TableRow>
                                         <TableCell>&nbsp;</TableCell>
-                                        <TableCell>Name</TableCell>
-                                        <TableCell>Description</TableCell>
-                                        <TableCell>Connected flows</TableCell>
-                                        <TableCell>Total characters</TableCell>
-                                        <TableCell>Total chunks</TableCell>
-                                        <TableCell>Loader types</TableCell>
+                                        <TableCell>名称</TableCell>
+                                        <TableCell>描述</TableCell>
+                                        <TableCell>关联工作流</TableCell>
+                                        <TableCell>总字符数</TableCell>
+                                        <TableCell>总分块</TableCell>
+                                        <TableCell>加载类型</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -332,7 +332,7 @@ const Documents = () => {
                                     alt='doc_store_empty'
                                 />
                             </Box>
-                            <div>No Document Stores Created Yet</div>
+                            <div>啥也没有</div>
                         </Stack>
                     )}
                 </Stack>

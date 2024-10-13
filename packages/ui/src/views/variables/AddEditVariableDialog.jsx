@@ -30,12 +30,12 @@ const variableTypes = [
     {
         label: 'Static',
         name: 'static',
-        description: 'Variable value will be read from the value entered below'
+        description: '常量'
     },
     {
         label: 'Runtime',
         name: 'runtime',
-        description: 'Variable value will be read from .env file'
+        description: '从 .env 中可配置'
     }
 ]
 
@@ -188,14 +188,14 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <IconVariable style={{ marginRight: '10px' }} />
-                    {dialogProps.type === 'ADD' ? 'Add Variable' : 'Edit Variable'}
+                    {dialogProps.type === 'ADD' ? '添加变量' : '编辑变量'}
                 </div>
             </DialogTitle>
             <DialogContent>
                 <Box sx={{ p: 2 }}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <Typography>
-                            Variable Name<span style={{ color: 'red' }}>&nbsp;*</span>
+                            变量名<span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
 
                         <div style={{ flexGrow: 1 }}></div>
@@ -214,7 +214,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
                 <Box sx={{ p: 2 }}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <Typography>
-                            Type<span style={{ color: 'red' }}>&nbsp;*</span>
+                            类型<span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
                         <div style={{ flexGrow: 1 }}></div>
                     </div>

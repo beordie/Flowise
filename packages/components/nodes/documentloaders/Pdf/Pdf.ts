@@ -16,65 +16,65 @@ class Pdf_DocumentLoaders implements INode {
     inputs: INodeParams[]
 
     constructor() {
-        this.label = 'Pdf File'
+        this.label = 'Pdf 文件'
         this.name = 'pdfFile'
         this.version = 1.0
         this.type = 'Document'
         this.icon = 'pdf.svg'
         this.category = 'Document Loaders'
-        this.description = `Load data from PDF files`
+        this.description = `从 PDF 文件中读取数据`
         this.baseClasses = [this.type]
         this.inputs = [
             {
-                label: 'Pdf File',
+                label: 'Pdf 文件',
                 name: 'pdfFile',
                 type: 'file',
                 fileType: '.pdf'
             },
             {
-                label: 'Text Splitter',
+                label: '文本分割器',
                 name: 'textSplitter',
                 type: 'TextSplitter',
                 optional: true
             },
             {
-                label: 'Usage',
+                label: '使用方式',
                 name: 'usage',
                 type: 'options',
                 options: [
                     {
-                        label: 'One document per page',
+                        label: '一页作为一个文档',
                         name: 'perPage'
                     },
                     {
-                        label: 'One document per file',
+                        label: '一个文件作为一个文档',
                         name: 'perFile'
                     }
                 ],
                 default: 'perPage'
             },
             {
-                label: 'Use Legacy Build',
+                label: '使用旧版本',
                 name: 'legacyBuild',
                 type: 'boolean',
                 optional: true,
                 additionalParams: true
             },
             {
-                label: 'Additional Metadata',
+                label: '添加元数据',
                 name: 'metadata',
                 type: 'json',
-                description: 'Additional metadata to be added to the extracted documents',
+                description: '要添加到提取的文档中的其他元数据',
                 optional: true,
                 additionalParams: true
             },
             {
-                label: 'Omit Metadata Keys',
+                label: '忽略元数据键',
                 name: 'omitMetadataKeys',
                 type: 'string',
                 rows: 4,
                 description:
-                    'Each document loader comes with a default set of metadata keys that are extracted from the document. You can use this field to omit some of the default metadata keys. The value should be a list of keys, seperated by comma. Use * to omit all metadata keys execept the ones you specify in the Additional Metadata field',
+                    '每个文档加载器都附带一组从文档中提取的默认元数据键。您可以使用此字段省略一些默认元数据键。该值应该是一个键列表，以逗号分隔。使用*省略所有元数据键，除了在附加元数据字段中指定的键',
                 placeholder: 'key1, key2, key3.nestedKey1',
                 optional: true,
                 additionalParams: true

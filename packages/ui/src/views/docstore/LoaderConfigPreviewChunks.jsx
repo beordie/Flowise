@@ -461,7 +461,7 @@ const LoaderConfigPreviewChunks = () => {
                                                     <Typography sx={{ mr: 2 }} variant='h3'>
                                                         {(splitterOptions ?? []).find(
                                                             (splitter) => splitter.name === selectedTextSplitter?.name
-                                                        )?.label ?? 'Select Text Splitter'}
+                                                        )?.label ?? '选择文本分割器'}
                                                     </Typography>
                                                     <div
                                                         style={{
@@ -493,7 +493,7 @@ const LoaderConfigPreviewChunks = () => {
                                                     </div>
                                                 </Box>
                                                 <Box sx={{ p: 2 }}>
-                                                    <Typography>Splitter</Typography>
+                                                    <Typography>分割器</Typography>
                                                     <Dropdown
                                                         key={JSON.stringify(selectedTextSplitter)}
                                                         name='textSplitter'
