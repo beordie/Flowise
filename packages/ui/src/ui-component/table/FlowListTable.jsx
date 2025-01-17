@@ -111,7 +111,7 @@ export const FlowListTable = ({ data, images, isLoading, filterFunction, updateF
                                 </TableSortLabel>
                             </StyledTableCell>
                             <StyledTableCell style={{ width: '10%' }} key='4'>
-                                Actions
+                                操作
                             </StyledTableCell>
                         </TableRow>
                     </TableHead>
@@ -248,7 +248,7 @@ export const FlowListTable = ({ data, images, isLoading, filterFunction, updateF
                                                 </Box>
                                             )}
                                         </StyledTableCell>
-                                        <StyledTableCell key='3'>{moment(row.updatedDate).format('MMMM Do, YYYY')}</StyledTableCell>
+                                        <StyledTableCell key='3'>{moment(row.updatedDate).format('YYYY-MM-DD HH:mm')}</StyledTableCell>
                                         <StyledTableCell key='4'>
                                             <Stack
                                                 direction={{ xs: 'column', sm: 'row' }}

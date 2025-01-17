@@ -294,7 +294,7 @@ const AddNodes = ({ nodesData, node, isAgentCanvas }) => {
                                 <MainCard border={false} elevation={16} content={false} boxShadow shadow={theme.shadows[16]}>
                                     <Box sx={{ p: 2 }}>
                                         <Stack>
-                                            <Typography variant='h4'>Add Nodes</Typography>
+                                            <Typography variant='h4'>添加流程节点</Typography>
                                         </Stack>
                                         <OutlinedInput
                                             // eslint-disable-next-line
@@ -303,7 +303,7 @@ const AddNodes = ({ nodesData, node, isAgentCanvas }) => {
                                             id='input-search-node'
                                             value={searchValue}
                                             onChange={(e) => filterSearch(e.target.value)}
-                                            placeholder='Search nodes'
+                                            placeholder='搜索节点'
                                             startAdornment={
                                                 <InputAdornment position='start'>
                                                     <IconSearch stroke={1.5} size='1rem' color={theme.palette.grey[500]} />
@@ -319,7 +319,7 @@ const AddNodes = ({ nodesData, node, isAgentCanvas }) => {
                                                             color: theme.palette.grey[900]
                                                         }
                                                     }}
-                                                    title='Clear Search'
+                                                    title='清空搜索'
                                                 >
                                                     <IconX
                                                         stroke={1.5}

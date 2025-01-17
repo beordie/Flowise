@@ -51,7 +51,11 @@ import { gridSpacing } from '@/store/constant'
 import useNotifier from '@/utils/useNotifier'
 
 const badges = ['POPULAR', 'NEW']
-const types = ['Chatflow', 'Agentflow', 'Tool']
+const types = [
+    { name: '工作流', value: 'Chatflow' },
+    { name: '代理流', value: 'Agentflow' },
+    { name: '工具', value: 'Tool' }
+]
 const framework = ['Langchain', 'LlamaIndex']
 const MenuProps = {
     PaperProps: {
@@ -417,7 +421,7 @@ const Marketplace = () => {
                                         }}
                                     >
                                         <InputLabel size='small' id='filter-badge-label'>
-                                            Tag
+                                            标签
                                         </InputLabel>
                                         <Select
                                             labelId='filter-badge-label'
@@ -453,7 +457,7 @@ const Marketplace = () => {
                                         }}
                                     >
                                         <InputLabel size='small' id='type-badge-label'>
-                                            Type
+                                            类型
                                         </InputLabel>
                                         <Select
                                             size='small'
@@ -467,14 +471,14 @@ const Marketplace = () => {
                                             MenuProps={MenuProps}
                                             sx={SelectStyles}
                                         >
-                                            {types.map((name) => (
+                                            {types.map((item) => (
                                                 <MenuItem
-                                                    key={name}
-                                                    value={name}
+                                                    key={item.name}
+                                                    value={item.value}
                                                     sx={{ display: 'flex', alignItems: 'center', gap: 1, p: 1 }}
                                                 >
-                                                    <Checkbox checked={typeFilter.indexOf(name) > -1} sx={{ p: 0 }} />
-                                                    <ListItemText primary={name} />
+                                                    <Checkbox checked={typeFilter.indexOf(item.value) > -1} sx={{ p: 0 }} />
+                                                    <ListItemText primary={item.name} />
                                                 </MenuItem>
                                             ))}
                                         </Select>
@@ -489,7 +493,7 @@ const Marketplace = () => {
                                         }}
                                     >
                                         <InputLabel size='small' id='type-fw-label'>
-                                            Framework
+                                            框架
                                         </InputLabel>
                                         <Select
                                             size='small'
@@ -519,8 +523,8 @@ const Marketplace = () => {
                             }
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Name/Description/Node'
-                            title='Marketplace'
+                            searchPlaceholder='按照 名称/描述/节点 搜索'
+                            title='市场'
                         >
                             <ToggleButtonGroup
                                 sx={{ borderRadius: 2, height: '100%' }}
@@ -556,8 +560,8 @@ const Marketplace = () => {
                             </ToggleButtonGroup>
                         </ViewHeader>
                         <Tabs value={activeTabValue} onChange={handleTabChange} textColor='primary' aria-label='tabs' centered>
-                            <Tab value={0} label='Community Templates'></Tab>
-                            <Tab value={1} label='My Templates' />
+                            <Tab value={0} label='社区模板'></Tab>
+                            <Tab value={1} label='本地模板' />
                         </Tabs>
                         <TabPanel value={activeTabValue} index={0}>
                             <Stack direction='row' sx={{ gap: 2, my: 2, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -798,7 +802,7 @@ const Marketplace = () => {
                                             alt='WorkflowEmptySVG'
                                         />
                                     </Box>
-                                    <div>No Saved Custom Templates</div>
+                                    <div>没有发现任何模板</div>
                                 </Stack>
                             )}
                         </TabPanel>

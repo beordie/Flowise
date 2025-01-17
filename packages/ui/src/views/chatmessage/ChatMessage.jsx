@@ -169,7 +169,7 @@ export const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, preview
     const [loading, setLoading] = useState(false)
     const [messages, setMessages] = useState([
         {
-            message: 'Hi there! How can I help?',
+            message: 'Hi! 有什么需要帮助?',
             type: 'apiMessage'
         }
     ])
@@ -1080,7 +1080,7 @@ export const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, preview
             setLoading(false)
             setMessages([
                 {
-                    message: 'Hi there! How can I help?',
+                    message: 'Hi! 有什么需要帮助?',
                     type: 'apiMessage'
                 }
             ])
@@ -2100,7 +2100,7 @@ export const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, preview
                             onKeyDown={handleEnter}
                             id='userInput'
                             name='userInput'
-                            placeholder={loading ? 'Waiting for response...' : 'Type your question...'}
+                            placeholder={loading ? '等待回复...' : '请输入你的问题...'}
                             value={userInput}
                             onChange={onChange}
                             multiline={true}

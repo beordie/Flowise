@@ -100,7 +100,7 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, handleSaveFlow, handleDeleteFlo
                 return
             }
             setExportAsTemplateDialogProps({
-                title: 'Export As Template',
+                title: '导出为模板',
                 chatflow: chatflow
             })
             setExportAsTemplateDialogOpen(true)
@@ -442,9 +442,9 @@ const CanvasHeader = ({ chatflow, isAgentCanvas, handleSaveFlow, handleDeleteFlo
             <SaveChatflowDialog
                 show={flowDialogOpen}
                 dialogProps={{
-                    title: `Save New ${title}`,
-                    confirmButtonName: 'Save',
-                    cancelButtonName: 'Cancel'
+                    title: `保存 ${title}`,
+                    confirmButtonName: '确认',
+                    cancelButtonName: '取消'
                 }}
                 onCancel={() => setFlowDialogOpen(false)}
                 onConfirm={onConfirmSaveName}

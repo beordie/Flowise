@@ -80,7 +80,7 @@ const ExportDialog = ({ show, onCancel, onExport }) => {
             aria-describedby='export-dialog-description'
         >
             <DialogTitle sx={{ fontSize: '1rem' }} id='export-dialog-title'>
-                {!isExporting ? 'Select Data to Export' : 'Exporting..'}
+                {!isExporting ? '选择导出数据' : '导出中...'}
             </DialogTitle>
             <DialogContent>
                 {!isExporting && (

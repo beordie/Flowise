@@ -14,20 +14,20 @@ class RecursiveCharacterTextSplitter_TextSplitters implements INode {
     inputs: INodeParams[]
 
     constructor() {
-        this.label = 'Recursive Character Text Splitter'
+        this.label = '递归文本分割'
         this.name = 'recursiveCharacterTextSplitter'
         this.version = 2.0
         this.type = 'RecursiveCharacterTextSplitter'
         this.icon = 'textsplitter.svg'
-        this.category = 'Text Splitters'
+        this.category = '文本分割'
         this.description = `Split documents recursively by different characters - starting with "\\n\\n", then "\\n", then " "`
         this.baseClasses = [this.type, ...getBaseClasses(RecursiveCharacterTextSplitter)]
         this.inputs = [
             {
-                label: 'Chunk Size',
+                label: '块大小',
                 name: 'chunkSize',
                 type: 'number',
-                description: 'Number of characters in each chunk. Default is 1000.',
+                description: '每个块字符数量，默认大小 1000.',
                 default: 1000,
                 optional: true
             },

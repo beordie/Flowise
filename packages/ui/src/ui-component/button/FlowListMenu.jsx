@@ -100,7 +100,7 @@ export default function FlowListMenu({ chatflow, isAgentCanvas, setError, update
     const [exportTemplateDialogOpen, setExportTemplateDialogOpen] = useState(false)
     const [exportTemplateDialogProps, setExportTemplateDialogProps] = useState({})
 
-    const title = isAgentCanvas ? 'Agents' : 'Chatflow'
+    const title = isAgentCanvas ? 'Agents' : '【工作流】'
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
@@ -227,10 +227,10 @@ export default function FlowListMenu({ chatflow, isAgentCanvas, setError, update
     const handleDelete = async () => {
         setAnchorEl(null)
         const confirmPayload = {
-            title: `Delete`,
-            description: `Delete ${title} ${chatflow.name}?`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel'
+            title: `删除`,
+            description: `确认删除 ${title} ${chatflow.name}?`,
+            confirmButtonName: '确认',
+            cancelButtonName: '取消'
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -296,7 +296,7 @@ export default function FlowListMenu({ chatflow, isAgentCanvas, setError, update
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
             >
-                Options
+                选项
             </Button>
             <StyledMenu
                 id='demo-customized-menu'
@@ -309,19 +309,19 @@ export default function FlowListMenu({ chatflow, isAgentCanvas, setError, update
             >
                 <MenuItem onClick={handleFlowRename} disableRipple>
                     <EditIcon />
-                    Rename
+                    改名
                 </MenuItem>
                 <MenuItem onClick={handleDuplicate} disableRipple>
                     <FileCopyIcon />
-                    Duplicate
+                    复制
                 </MenuItem>
                 <MenuItem onClick={handleExport} disableRipple>
                     <FileDownloadIcon />
-                    Export
+                    导出
                 </MenuItem>
                 <MenuItem onClick={handleExportTemplate} disableRipple>
                     <ExportTemplateOutlinedIcon />
-                    Save As Template
+                    保存模板
                 </MenuItem>
                 <Divider sx={{ my: 0.5 }} />
                 <MenuItem onClick={handleFlowStarterPrompts} disableRipple>
@@ -347,15 +347,15 @@ export default function FlowListMenu({ chatflow, isAgentCanvas, setError, update
                 <Divider sx={{ my: 0.5 }} />
                 <MenuItem onClick={handleDelete} disableRipple>
                     <FileDeleteIcon />
-                    Delete
+                    删除
                 </MenuItem>
             </StyledMenu>
             <SaveChatflowDialog
                 show={flowDialogOpen}
                 dialogProps={{
-                    title: `Rename ${title}`,
-                    confirmButtonName: 'Rename',
-                    cancelButtonName: 'Cancel'
+                    title: `重命名 ${title}`,
+                    confirmButtonName: '确认',
+                    cancelButtonName: '取消'
                 }}
                 onCancel={() => setFlowDialogOpen(false)}
                 onConfirm={saveFlowRename}

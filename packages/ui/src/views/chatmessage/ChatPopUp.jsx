@@ -80,10 +80,10 @@ export const ChatPopUp = ({ chatflowid, isAgentCanvas }) => {
 
     const clearChat = async () => {
         const confirmPayload = {
-            title: `Clear Chat History`,
-            description: `Are you sure you want to clear all chat history?`,
-            confirmButtonName: 'Clear',
-            cancelButtonName: 'Cancel'
+            title: `清除聊天历史`,
+            description: `确定是否要清除所有聊天记录？`,
+            confirmButtonName: '确认',
+            cancelButtonName: '取消'
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -153,7 +153,7 @@ export const ChatPopUp = ({ chatflowid, isAgentCanvas }) => {
                     size='small'
                     color='error'
                     aria-label='clear'
-                    title='Clear Chat History'
+                    title='清除聊天历史'
                 >
                     <IconEraser />
                 </StyledFab>

@@ -1,7 +1,7 @@
 {
     "description": "Split flows based on if else condition",
     "framework": ["Langchain"],
-    "usecases": ["Basic"],
+    "usecases": ["基础"],
     "nodes": [
         {
             "width": 300,

@@ -75,7 +75,7 @@ const settings = {
         },
         {
             id: 'loadChatflow',
-            title: 'Load Chatflow',
+            title: '本地加载',
             type: 'item',
             url: '',
             icon: icons.IconFileUpload
