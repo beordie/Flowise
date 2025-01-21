@@ -14,37 +14,37 @@ class RecursiveCharacterTextSplitter_TextSplitters implements INode {
     inputs: INodeParams[]
 
     constructor() {
-        this.label = '递归文本分割'
+        this.label = '递归分割器'
         this.name = 'recursiveCharacterTextSplitter'
         this.version = 2.0
         this.type = 'RecursiveCharacterTextSplitter'
         this.icon = 'textsplitter.svg'
         this.category = '文本分割'
-        this.description = `Split documents recursively by different characters - starting with "\\n\\n", then "\\n", then " "`
+        this.description = `基于分隔符列表的递归式分块，使用 "\\n\\n"、"\\n"、" " 等作为分隔符，以此来保留文档的结构信息。`
         this.baseClasses = [this.type, ...getBaseClasses(RecursiveCharacterTextSplitter)]
         this.inputs = [
             {
                 label: '块大小',
                 name: 'chunkSize',
                 type: 'number',
-                description: '每个块字符数量，默认大小 1000.',
+                description: '每个块字符数量，默认大小 1000。',
                 default: 1000,
                 optional: true
             },
             {
-                label: 'Chunk Overlap',
+                label: '块重叠',
                 name: 'chunkOverlap',
                 type: 'number',
-                description: 'Number of characters to overlap between chunks. Default is 200.',
+                description: '块间字符的重叠数，默认大小 200。',
                 default: 200,
                 optional: true
             },
             {
-                label: 'Custom Separators',
+                label: '分隔符数组',
                 name: 'separators',
                 type: 'string',
                 rows: 4,
-                description: 'Array of custom separators to determine when to split the text, will override the default separators',
+                description: '自定义分隔符数组，将覆盖默认分隔符.',
                 placeholder: `["|", "##", ">", "-"]`,
                 additionalParams: true,
                 optional: true

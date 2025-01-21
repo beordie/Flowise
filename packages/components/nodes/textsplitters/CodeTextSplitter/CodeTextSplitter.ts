@@ -17,17 +17,17 @@ class CodeTextSplitter_TextSplitters implements INode {
     baseClasses: string[]
     inputs: INodeParams[]
     constructor() {
-        this.label = 'Code Text Splitter'
+        this.label = '代码分割器'
         this.name = 'codeTextSplitter'
         this.version = 1.0
         this.type = 'CodeTextSplitter'
         this.icon = 'codeTextSplitter.svg'
-        this.category = 'Text Splitters'
-        this.description = `Split documents based on language-specific syntax`
+        this.category = '文本分割'
+        this.description = `基于特定编程语言(Java、Go...)的语法来进行文档的拆分。`
         this.baseClasses = [this.type, ...getBaseClasses(RecursiveCharacterTextSplitter)]
         this.inputs = [
             {
-                label: 'Language',
+                label: '文本语言',
                 name: 'language',
                 type: 'options',
                 options: [
@@ -98,18 +98,18 @@ class CodeTextSplitter_TextSplitters implements INode {
                 ]
             },
             {
-                label: 'Chunk Size',
+                label: '块大小',
                 name: 'chunkSize',
                 type: 'number',
-                description: 'Number of characters in each chunk. Default is 1000.',
+                description: '每个块字符数量，默认大小 1000。',
                 default: 1000,
                 optional: true
             },
             {
-                label: 'Chunk Overlap',
+                label: '块重叠',
                 name: 'chunkOverlap',
                 type: 'number',
-                description: 'Number of characters to overlap between chunks. Default is 200.',
+                description: '块间字符的重叠数，默认大小 200。',
                 default: 200,
                 optional: true
             }

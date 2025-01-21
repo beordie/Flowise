@@ -15,17 +15,17 @@ class TokenTextSplitter_TextSplitters implements INode {
     inputs: INodeParams[]
 
     constructor() {
-        this.label = 'Token Text Splitter'
+        this.label = 'Token 分割器'
         this.name = 'tokenTextSplitter'
         this.version = 1.0
         this.type = 'TokenTextSplitter'
         this.icon = 'tiktoken.svg'
-        this.category = 'Text Splitters'
-        this.description = `Splits a raw text string by first converting the text into BPE tokens, then split these tokens into chunks and convert the tokens within a single chunk back into text.`
+        this.category = '文本分割'
+        this.description = `首先使用 BPE 编码对文本进行转换分割为块，并将单个块中的标记转换为文本，之后再进行文本分割。`
         this.baseClasses = [this.type, ...getBaseClasses(TokenTextSplitter)]
         this.inputs = [
             {
-                label: 'Encoding Name',
+                label: '编码器',
                 name: 'encodingName',
                 type: 'options',
                 options: [
@@ -53,18 +53,18 @@ class TokenTextSplitter_TextSplitters implements INode {
                 default: 'gpt2'
             },
             {
-                label: 'Chunk Size',
+                label: '块大小',
                 name: 'chunkSize',
                 type: 'number',
-                description: 'Number of characters in each chunk. Default is 1000.',
+                description: '每个块字符数量，默认大小 1000。',
                 default: 1000,
                 optional: true
             },
             {
-                label: 'Chunk Overlap',
+                label: '块重叠',
                 name: 'chunkOverlap',
                 type: 'number',
-                description: 'Number of characters to overlap between chunks. Default is 200.',
+                description: '块间字符的重叠数，默认大小 200。',
                 default: 200,
                 optional: true
             }
