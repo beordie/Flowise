@@ -184,7 +184,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
             })
             if (saveResp.data) {
                 enqueueSnackbar({
-                    message: 'Chatbot Configuration Saved',
+                    message: '聊天机器人配置已保存',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -199,7 +199,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to save Chatbot Configuration: ${
+                message: `保存聊天机器人配置失败: ${
                     typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                 }`,
                 options: {
@@ -221,7 +221,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
             const saveResp = await chatflowsApi.updateChatflow(chatflowid, { isPublic: checked })
             if (saveResp.data) {
                 enqueueSnackbar({
-                    message: 'Chatbot Configuration Saved',
+                    message: '聊天机器人配置已保存',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -429,7 +429,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                     {`${baseURL}/chatbot/${chatflowid}`}
                 </Typography>
                 <IconButton
-                    title='Copy Link'
+                    title='复制链接'
                     color='success'
                     onClick={(event) => {
                         navigator.clipboard.writeText(`${baseURL}/chatbot/${chatflowid}`)
@@ -441,7 +441,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                 >
                     <IconCopy />
                 </IconButton>
-                <IconButton title='Open New Tab' color='primary' onClick={() => window.open(`${baseURL}/chatbot/${chatflowid}`, '_blank')}>
+                <IconButton title='在新标签页打开' color='primary' onClick={() => window.open(`${baseURL}/chatbot/${chatflowid}`, '_blank')}>
                     <IconArrowUpRightCircle />
                 </IconButton>
                 <div style={{ flex: 1 }} />
@@ -454,10 +454,10 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                                 onSwitchChange(event.target.checked)
                             }}
                         />
-                        <Typography>Make Public</Typography>
+                        <Typography>公开聊天机器人</Typography>
                         <TooltipWithParser
                             style={{ marginLeft: 10 }}
-                            title={'Making public will allow anyone to access the chatbot without authentication'}
+                            title={'公开后任何人都可以无需认证访问聊天机器人'}
                         />
                     </div>
                 </Available>
@@ -465,75 +465,75 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
 
             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Title Settings</Typography>
+                    <Typography variant='h4'>标题设置</Typography>
                 </Stack>
-                {textField(title, 'title', 'Title', 'string', 'Flowise Assistant')}
+                {textField(title, 'title', '标题', 'string', 'Flowise助手')}
                 {textField(
                     titleAvatarSrc,
                     'titleAvatarSrc',
-                    'Title Avatar Link',
+                    '标题头像链接',
                     'string',
                     `https://raw.githubusercontent.com/FlowiseAI/Flowise/main/assets/FloWiseAI_dark.png`
                 )}
-                {colorField(titleBackgroundColor, 'titleBackgroundColor', 'Title Background Color')}
-                {colorField(titleTextColor, 'titleTextColor', 'Title TextColor')}
+                {colorField(titleBackgroundColor, 'titleBackgroundColor', '标题背景颜色')}
+                {colorField(titleTextColor, 'titleTextColor', '标题文字颜色')}
             </Card>
 
             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>General Settings</Typography>
+                    <Typography variant='h4'>通用设置</Typography>
                 </Stack>
-                {textField(welcomeMessage, 'welcomeMessage', 'Welcome Message', 'string', 'Hello! This is custom welcome message')}
-                {textField(errorMessage, 'errorMessage', 'Error Message', 'string', 'This is custom error message')}
-                {colorField(backgroundColor, 'backgroundColor', 'Background Color')}
-                {textField(fontSize, 'fontSize', 'Font Size', 'number')}
-                {colorField(poweredByTextColor, 'poweredByTextColor', 'PoweredBy TextColor')}
-                {isAgentCanvas && booleanField(showAgentMessages, 'showAgentMessages', 'Show agent reasonings when using Agentflow')}
-                {booleanField(renderHTML, 'renderHTML', 'Render HTML on the chat')}
+                {textField(welcomeMessage, 'welcomeMessage', '欢迎消息', 'string', '你好！这是自定义欢迎消息')}
+                {textField(errorMessage, 'errorMessage', '错误消息', 'string', '这是自定义错误消息')}
+                {colorField(backgroundColor, 'backgroundColor', '背景颜色')}
+                {textField(fontSize, 'fontSize', '字体大小', 'number')}
+                {colorField(poweredByTextColor, 'poweredByTextColor', '技术支持文字颜色')}
+                {isAgentCanvas && booleanField(showAgentMessages, 'showAgentMessages', '使用Agentflow时显示代理推理过程')}
+                {booleanField(renderHTML, 'renderHTML', '在聊天中渲染HTML')}
                 {isSessionMemory &&
-                    booleanField(generateNewSession, 'generateNewSession', 'Start new session when chatbot link is opened or refreshed')}
+                    booleanField(generateNewSession, 'generateNewSession', '打开或刷新聊天机器人链接时开始新会话')}
             </Card>
 
             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Bot Message</Typography>
+                    <Typography variant='h4'>机器人消息</Typography>
                 </Stack>
-                {colorField(botMessageBackgroundColor, 'botMessageBackgroundColor', 'Background Color')}
-                {colorField(botMessageTextColor, 'botMessageTextColor', 'Text Color')}
+                {colorField(botMessageBackgroundColor, 'botMessageBackgroundColor', '背景颜色')}
+                {colorField(botMessageTextColor, 'botMessageTextColor', '文字颜色')}
                 {textField(
                     botMessageAvatarSrc,
                     'botMessageAvatarSrc',
-                    'Avatar Link',
+                    '头像链接',
                     'string',
                     `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/parroticon.png`
                 )}
-                {booleanField(botMessageShowAvatar, 'botMessageShowAvatar', 'Show Avatar')}
+                {booleanField(botMessageShowAvatar, 'botMessageShowAvatar', '显示头像')}
             </Card>
 
             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>User Message</Typography>
+                    <Typography variant='h4'>用户消息</Typography>
                 </Stack>
-                {colorField(userMessageBackgroundColor, 'userMessageBackgroundColor', 'Background Color')}
-                {colorField(userMessageTextColor, 'userMessageTextColor', 'Text Color')}
+                {colorField(userMessageBackgroundColor, 'userMessageBackgroundColor', '背景颜色')}
+                {colorField(userMessageTextColor, 'userMessageTextColor', '文字颜色')}
                 {textField(
                     userMessageAvatarSrc,
                     'userMessageAvatarSrc',
-                    'Avatar Link',
+                    '头像链接',
                     'string',
                     `https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png`
                 )}
-                {booleanField(userMessageShowAvatar, 'userMessageShowAvatar', 'Show Avatar')}
+                {booleanField(userMessageShowAvatar, 'userMessageShowAvatar', '显示头像')}
             </Card>
 
             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 3, mt: 2 }} variant='outlined'>
                 <Stack sx={{ mt: 1, mb: 2, alignItems: 'center' }} direction='row' spacing={2}>
-                    <Typography variant='h4'>Text Input</Typography>
+                    <Typography variant='h4'>文本输入</Typography>
                 </Stack>
-                {colorField(textInputBackgroundColor, 'textInputBackgroundColor', 'Background Color')}
-                {colorField(textInputTextColor, 'textInputTextColor', 'Text Color')}
-                {textField(textInputPlaceholder, 'textInputPlaceholder', 'TextInput Placeholder', 'string', `Type question..`)}
-                {colorField(textInputSendButtonColor, 'textInputSendButtonColor', 'TextIntput Send Button Color')}
+                {colorField(textInputBackgroundColor, 'textInputBackgroundColor', '背景颜色')}
+                {colorField(textInputTextColor, 'textInputTextColor', '文字颜色')}
+                {textField(textInputPlaceholder, 'textInputPlaceholder', '文本输入占位符', 'string', `输入问题..`)}
+                {colorField(textInputSendButtonColor, 'textInputSendButtonColor', '文本输入发送按钮颜色')}
             </Card>
 
             <StyledPermissionButton
@@ -548,7 +548,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                 variant='contained'
                 onClick={() => onSave()}
             >
-                Save Changes
+                保存更改
             </StyledPermissionButton>
             <Popover
                 open={openColorPopOver}
@@ -579,7 +579,7 @@ const ShareChatbot = ({ isSessionMemory, isAgentCanvas }) => {
                 }}
             >
                 <Typography variant='h6' sx={{ pl: 1, pr: 1, color: 'white', background: theme.palette.success.dark }}>
-                    Copied!
+                    已复制！
                 </Typography>
             </Popover>
         </>

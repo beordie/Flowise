@@ -1,6 +1,6 @@
 {
-    "description": "An agent based approach using AgentflowV2 to perform self-correcting question answering over documents",
-    "usecases": ["Reflective Agent", "Documents QnA"],
+    "description": "基于AgentflowV2的代理方法，用于执行文档上的自我纠正问答",
+  "usecases": ["反思型代理", "文档问答"],
     "nodes": [
         {
             "id": "startAgentflow_0",
@@ -11,7 +11,7 @@
             },
             "data": {
                 "id": "startAgentflow_0",
-                "label": "Start",
+                "label": "开始",
                 "version": 1.1,
                 "name": "startAgentflow",
                 "type": "Start",
@@ -19,22 +19,22 @@
                 "hideInput": true,
                 "baseClasses": ["Start"],
                 "category": "Agent Flows",
-                "description": "Starting point of the agentflow",
+                "description": "代理流程的起点",
                 "inputParams": [
                     {
-                        "label": "Input Type",
+                        "label": "输入类型",
                         "name": "startInputType",
                         "type": "options",
                         "options": [
                             {
-                                "label": "Chat Input",
+                                "label": "聊天输入",
                                 "name": "chatInput",
-                                "description": "Start the conversation with chat input"
+                                "description": "使用聊天输入开始对话"
                             },
                             {
-                                "label": "Form Input",
+                                "label": "表单输入",
                                 "name": "formInput",
-                                "description": "Start the workflow with form inputs"
+                                "description": "使用表单输入开始工作流"
                             }
                         ],
                         "default": "chatInput",
@@ -42,10 +42,10 @@
                         "display": true
                     },
                     {
-                        "label": "Form Title",
+                        "label": "表单标题",
                         "name": "formTitle",
                         "type": "string",
-                        "placeholder": "Please Fill Out The Form",
+                        "placeholder": "请填写表单",
                         "show": {
                             "startInputType": "formInput"
                         },
@@ -53,10 +53,10 @@
                         "display": false
                     },
                     {
-                        "label": "Form Description",
+                        "label": "表单描述",
                         "name": "formDescription",
                         "type": "string",
-                        "placeholder": "Complete all fields below to continue",
+                        "placeholder": "完成以下所有字段以继续",
                         "show": {
                             "startInputType": "formInput"
                         },
@@ -64,53 +64,53 @@
                         "display": false
                     },
                     {
-                        "label": "Form Input Types",
+                        "label": "表单输入类型",
                         "name": "formInputTypes",
-                        "description": "Specify the type of form input",
+                        "description": "指定表单输入类型",
                         "type": "array",
                         "show": {
                             "startInputType": "formInput"
                         },
                         "array": [
                             {
-                                "label": "Type",
+                                "label": "类型",
                                 "name": "type",
                                 "type": "options",
                                 "options": [
                                     {
-                                        "label": "String",
+                                        "label": "字符串",
                                         "name": "string"
                                     },
                                     {
-                                        "label": "Number",
+                                        "label": "数字",
                                         "name": "number"
                                     },
                                     {
-                                        "label": "Boolean",
+                                        "label": "布尔值",
                                         "name": "boolean"
                                     },
                                     {
-                                        "label": "Options",
+                                        "label": "选项",
                                         "name": "options"
                                     }
                                 ],
                                 "default": "string"
                             },
                             {
-                                "label": "Label",
+                                "label": "标签",
                                 "name": "label",
                                 "type": "string",
-                                "placeholder": "Label for the input"
+                                "placeholder": "输入的标签"
                             },
                             {
-                                "label": "Variable Name",
+                                "label": "变量名",
                                 "name": "name",
                                 "type": "string",
-                                "placeholder": "Variable name for the input (must be camel case)",
-                                "description": "Variable name must be camel case. For example: firstName, lastName, etc."
+                                "placeholder": "输入的变量名（必须为驼峰式）",
+                                "description": "变量名必须为驼峰式。例如：firstName、lastName等。"
                             },
                             {
-                                "label": "Add Options",
+                                "label": "添加选项",
                                 "name": "addOptions",
                                 "type": "array",
                                 "show": {
@@ -118,7 +118,7 @@
                                 },
                                 "array": [
                                     {
-                                        "label": "Option",
+                                        "label": "选项",
                                         "name": "option",
                                         "type": "string"
                                     }
@@ -129,27 +129,27 @@
                         "display": false
                     },
                     {
-                        "label": "Ephemeral Memory",
+                        "label": "临时内存",
                         "name": "startEphemeralMemory",
                         "type": "boolean",
-                        "description": "Start fresh for every execution without past chat history",
+                        "description": "每次执行都从头开始，不保留过去的聊天历史",
                         "optional": true
                     },
                     {
-                        "label": "Flow State",
+                        "label": "流程状态",
                         "name": "startState",
-                        "description": "Runtime state during the execution of the workflow",
+                        "description": "工作流执行期间的运行时状态",
                         "type": "array",
                         "optional": true,
                         "array": [
                             {
-                                "label": "Key",
+                                "label": "键",
                                 "name": "key",
                                 "type": "string",
                                 "placeholder": "Foo"
                             },
                             {
-                                "label": "Value",
+                                "label": "值",
                                 "name": "value",
                                 "type": "string",
                                 "placeholder": "Bar"
@@ -159,10 +159,10 @@
                         "display": true
                     },
                     {
-                        "label": "Persist State",
+                        "label": "持久化状态",
                         "name": "startPersistState",
                         "type": "boolean",
-                        "description": "Persist the state in the same session",
+                        "description": "在同一会话中持久化状态",
                         "optional": true,
                         "id": "startAgentflow_0-input-startPersistState-boolean",
                         "display": true
@@ -208,17 +208,17 @@
             },
             "data": {
                 "id": "conditionAgentAgentflow_0",
-                "label": "Check if query valid",
+                "label": "检查查询是否有效",
                 "version": 1,
                 "name": "conditionAgentAgentflow",
                 "type": "ConditionAgent",
                 "color": "#ff8fab",
                 "baseClasses": ["ConditionAgent"],
                 "category": "Agent Flows",
-                "description": "Utilize an agent to split flows based on dynamic conditions",
+                "description": "利用代理根据动态条件拆分流程",
                 "inputParams": [
                     {
-                        "label": "Model",
+                        "label": "模型",
                         "name": "conditionAgentModel",
                         "type": "asyncOptions",
                         "loadMethod": "listModels",
@@ -227,21 +227,21 @@
                         "display": true
                     },
                     {
-                        "label": "Instructions",
+                        "label": "指令",
                         "name": "conditionAgentInstructions",
                         "type": "string",
-                        "description": "A general instructions of what the condition agent should do",
+                        "description": "条件代理应该执行什么操作的一般指令",
                         "rows": 4,
                         "acceptVariable": true,
-                        "placeholder": "Determine if the user is interested in learning about AI",
+                        "placeholder": "判断用户是否有兴趣了解AI",
                         "id": "conditionAgentAgentflow_0-input-conditionAgentInstructions-string",
                         "display": true
                     },
                     {
-                        "label": "Input",
+                        "label": "输入",
                         "name": "conditionAgentInput",
                         "type": "string",
-                        "description": "Input to be used for the condition agent",
+                        "description": "用于条件代理的输入",
                         "rows": 4,
                         "acceptVariable": true,
                         "default": "<p><span class=\"variable\" data-type=\"mention\" data-id=\"question\" data-label=\"question\">{{ question }}</span> </p>",
@@ -249,16 +249,16 @@
                         "display": true
                     },
                     {
-                        "label": "Scenarios",
+                        "label": "场景",
                         "name": "conditionAgentScenarios",
-                        "description": "Define the scenarios that will be used as the conditions to split the flow",
+                        "description": "定义将用作拆分流程条件的场景",
                         "type": "array",
                         "array": [
                             {
-                                "label": "Scenario",
+                                "label": "场景",
                                 "name": "scenario",
                                 "type": "string",
-                                "placeholder": "User is asking for a pizza"
+                                "placeholder": "用户想要点披萨"
                             }
                         ],
                         "default": [
@@ -310,7 +310,7 @@
                 "outputAnchors": [
                     {
                         "id": "conditionAgentAgentflow_0-output-0",
-                        "label": "Condition Agent",
+                        "label": "条件代理",
                         "name": "conditionAgentAgentflow"
                     },
                     {
@@ -342,14 +342,14 @@
             },
             "data": {
                 "id": "llmAgentflow_0",
-                "label": "Generate Query",
+                "label": "生成查询",
                 "version": 1,
                 "name": "llmAgentflow",
                 "type": "LLM",
                 "color": "#64B5F6",
                 "baseClasses": ["LLM"],
                 "category": "Agent Flows",
-                "description": "Large language models to analyze user-provided inputs and generate responses",
+                "description": "大型语言模型分析用户提供的输入并生成响应",
                 "inputParams": [
                     {
                         "label": "Model",
@@ -361,37 +361,37 @@
                         "display": true
                     },
                     {
-                        "label": "Messages",
+                        "label": "消息",
                         "name": "llmMessages",
                         "type": "array",
                         "optional": true,
                         "acceptVariable": true,
                         "array": [
                             {
-                                "label": "Role",
+                                "label": "角色",
                                 "name": "role",
                                 "type": "options",
                                 "options": [
                                     {
-                                        "label": "System",
+                                        "label": "系统",
                                         "name": "system"
                                     },
                                     {
-                                        "label": "Assistant",
+                                        "label": "助手",
                                         "name": "assistant"
                                     },
                                     {
-                                        "label": "Developer",
+                                        "label": "开发者",
                                         "name": "developer"
                                     },
                                     {
-                                        "label": "User",
+                                        "label": "用户",
                                         "name": "user"
                                     }
                                 ]
                             },
                             {
-                                "label": "Content",
+                                "label": "内容",
                                 "name": "content",
                                 "type": "string",
                                 "acceptVariable": true,
@@ -403,39 +403,39 @@
                         "display": true
                     },
                     {
-                        "label": "Enable Memory",
+                        "label": "启用记忆",
                         "name": "llmEnableMemory",
                         "type": "boolean",
-                        "description": "Enable memory for the conversation thread",
+                        "description": "为对话线程启用记忆功能",
                         "default": true,
                         "optional": true,
                         "id": "llmAgentflow_0-input-llmEnableMemory-boolean",
                         "display": true
                     },
                     {
-                        "label": "Memory Type",
+                        "label": "记忆类型",
                         "name": "llmMemoryType",
                         "type": "options",
                         "options": [
                             {
-                                "label": "All Messages",
+                                "label": "所有消息",
                                 "name": "allMessages",
-                                "description": "Retrieve all messages from the conversation"
+                                "description": "检索对话中的所有消息"
                             },
                             {
-                                "label": "Window Size",
+                                "label": "窗口大小",
                                 "name": "windowSize",
-                                "description": "Uses a fixed window size to surface the last N messages"
+                                "description": "使用固定窗口大小显示最后N条消息"
                             },
                             {
-                                "label": "Conversation Summary",
+                                "label": "对话摘要",
                                 "name": "conversationSummary",
-                                "description": "Summarizes the whole conversation"
+                                "description": "总结整个对话"
                             },
                             {
-                                "label": "Conversation Summary Buffer",
+                                "label": "对话摘要缓冲区",
                                 "name": "conversationSummaryBuffer",
-                                "description": "Summarize conversations once token limit is reached. Default to 2000"
+                                "description": "达到令牌限制后总结对话。默认为2000"
                             }
                         ],
                         "optional": true,
@@ -447,11 +447,11 @@
                         "display": true
                     },
                     {
-                        "label": "Window Size",
+                        "label": "窗口大小",
                         "name": "llmMemoryWindowSize",
                         "type": "number",
                         "default": "20",
-                        "description": "Uses a fixed window size to surface the last N messages",
+                        "description": "使用固定窗口大小显示最后N条消息",
                         "show": {
                             "llmMemoryType": "windowSize"
                         },
@@ -459,11 +459,11 @@
                         "display": false
                     },
                     {
-                        "label": "Max Token Limit",
+                        "label": "最大令牌限制",
                         "name": "llmMemoryMaxTokenLimit",
                         "type": "number",
                         "default": "2000",
-                        "description": "Summarize conversations once token limit is reached. Default to 2000",
+                        "description": "达到令牌限制后总结对话。默认为2000",
                         "show": {
                             "llmMemoryType": "conversationSummaryBuffer"
                         },
@@ -471,10 +471,10 @@
                         "display": false
                     },
                     {
-                        "label": "Input Message",
+                        "label": "输入消息",
                         "name": "llmUserMessage",
                         "type": "string",
-                        "description": "Add an input message as user message at the end of the conversation",
+                        "description": "在对话末尾添加输入消息作为用户消息",
                         "rows": 4,
                         "optional": true,
                         "acceptVariable": true,
@@ -485,16 +485,16 @@
                         "display": true
                     },
                     {
-                        "label": "Return Response As",
+                        "label": "返回响应为",
                         "name": "llmReturnResponseAs",
                         "type": "options",
                         "options": [
                             {
-                                "label": "User Message",
+                                "label": "用户消息",
                                 "name": "userMessage"
                             },
                             {
-                                "label": "Assistant Message",
+                                "label": "助手消息",
                                 "name": "assistantMessage"
                             }
                         ],
@@ -503,98 +503,98 @@
                         "display": true
                     },
                     {
-                        "label": "JSON Structured Output",
+                        "label": "JSON结构化输出",
                         "name": "llmStructuredOutput",
-                        "description": "Instruct the LLM to give output in a JSON structured schema",
+                        "description": "指示LLM以JSON结构化格式输出",
                         "type": "array",
                         "optional": true,
                         "acceptVariable": true,
                         "array": [
                             {
-                                "label": "Key",
+                                "label": "键",
                                 "name": "key",
                                 "type": "string"
                             },
                             {
-                                "label": "Type",
+                                "label": "类型",
                                 "name": "type",
                                 "type": "options",
                                 "options": [
                                     {
-                                        "label": "String",
+                                        "label": "字符串",
                                         "name": "string"
                                     },
                                     {
-                                        "label": "String Array",
+                                        "label": "字符串数组",
                                         "name": "stringArray"
                                     },
                                     {
-                                        "label": "Number",
+                                        "label": "数字",
                                         "name": "number"
                                     },
                                     {
-                                        "label": "Boolean",
+                                        "label": "布尔值",
                                         "name": "boolean"
                                     },
                                     {
-                                        "label": "Enum",
+                                        "label": "枚举",
                                         "name": "enum"
                                     },
                                     {
-                                        "label": "JSON Array",
+                                        "label": "JSON数组",
                                         "name": "jsonArray"
                                     }
                                 ]
                             },
                             {
-                                "label": "Enum Values",
+                                "label": "枚举值",
                                 "name": "enumValues",
                                 "type": "string",
                                 "placeholder": "value1, value2, value3",
-                                "description": "Enum values. Separated by comma",
+                                "description": "枚举值。用逗号分隔",
                                 "optional": true,
                                 "show": {
                                     "llmStructuredOutput[$index].type": "enum"
                                 }
                             },
                             {
-                                "label": "JSON Schema",
+                                "label": "JSON架构",
                                 "name": "jsonSchema",
                                 "type": "code",
                                 "placeholder": "{\n    \"answer\": {\n        \"type\": \"string\",\n        \"description\": \"Value of the answer\"\n    },\n    \"reason\": {\n        \"type\": \"string\",\n        \"description\": \"Reason for the answer\"\n    },\n    \"optional\": {\n        \"type\": \"boolean\"\n    },\n    \"count\": {\n        \"type\": \"number\"\n    },\n    \"children\": {\n        \"type\": \"array\",\n        \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"value\": {\n                    \"type\": \"string\",\n                    \"description\": \"Value of the children's answer\"\n                }\n            }\n        }\n    }\n}",
-                                "description": "JSON schema for the structured output",
+                                "description": "结构化输出的JSON架构",
                                 "optional": true,
                                 "show": {
                                     "llmStructuredOutput[$index].type": "jsonArray"
                                 }
                             },
                             {
-                                "label": "Description",
+                                "label": "描述",
                                 "name": "description",
                                 "type": "string",
-                                "placeholder": "Description of the key"
+                                "placeholder": "键的描述"
                             }
                         ],
                         "id": "llmAgentflow_0-input-llmStructuredOutput-array",
                         "display": true
                     },
                     {
-                        "label": "Update Flow State",
+                        "label": "更新流程状态",
                         "name": "llmUpdateState",
-                        "description": "Update runtime state during the execution of the workflow",
+                        "description": "工作流执行期间更新运行时状态",
                         "type": "array",
                         "optional": true,
                         "acceptVariable": true,
                         "array": [
                             {
-                                "label": "Key",
+                                "label": "键",
                                 "name": "key",
                                 "type": "asyncOptions",
                                 "loadMethod": "listRuntimeStateKeys",
                                 "freeSolo": true
                             },
                             {
-                                "label": "Value",
+                                "label": "值",
                                 "name": "value",
                                 "type": "string",
                                 "acceptVariable": true,
@@ -674,14 +674,14 @@
             },
             "data": {
                 "id": "llmAgentflow_1",
-                "label": "General Answer",
+                "label": "通用回答",
                 "version": 1,
                 "name": "llmAgentflow",
                 "type": "LLM",
                 "color": "#64B5F6",
                 "baseClasses": ["LLM"],
                 "category": "Agent Flows",
-                "description": "Large language models to analyze user-provided inputs and generate responses",
+                "description": "大型语言模型分析用户提供的输入并生成响应",
                 "inputParams": [
                     {
                         "label": "Model",
@@ -996,23 +996,23 @@
             },
             "data": {
                 "id": "retrieverAgentflow_0",
-                "label": "Retriever Vector DB",
+                "label": "向量数据库检索器",
                 "version": 1,
                 "name": "retrieverAgentflow",
                 "type": "Retriever",
                 "color": "#b8bedd",
                 "baseClasses": ["Retriever"],
                 "category": "Agent Flows",
-                "description": "Retrieve information from vector database",
+                "description": "从向量数据库检索信息",
                 "inputParams": [
                     {
-                        "label": "Knowledge (Document Stores)",
+                        "label": "知识库（文档存储）",
                         "name": "retrieverKnowledgeDocumentStores",
                         "type": "array",
-                        "description": "Document stores to retrieve information from. Document stores must be upserted in advance.",
+                        "description": "从中检索信息的文档存储。文档存储必须提前插入。",
                         "array": [
                             {
-                                "label": "Document Store",
+                                "label": "文档存储",
                                 "name": "documentStore",
                                 "type": "asyncOptions",
                                 "loadMethod": "listStores"
@@ -1022,26 +1022,26 @@
                         "display": true
                     },
                     {
-                        "label": "Retriever Query",
+                        "label": "检索查询",
                         "name": "retrieverQuery",
                         "type": "string",
-                        "placeholder": "Enter your query here",
+                        "placeholder": "在此输入查询",
                         "rows": 4,
                         "acceptVariable": true,
                         "id": "retrieverAgentflow_0-input-retrieverQuery-string",
                         "display": true
                     },
                     {
-                        "label": "Output Format",
+                        "label": "输出格式",
                         "name": "outputFormat",
                         "type": "options",
                         "options": [
                             {
-                                "label": "Text",
+                                "label": "文本",
                                 "name": "text"
                             },
                             {
-                                "label": "Text with Metadata",
+                                "label": "带元数据的文本",
                                 "name": "textWithMetadata"
                             }
                         ],
@@ -1090,7 +1090,7 @@
                 "outputAnchors": [
                     {
                         "id": "retrieverAgentflow_0-output-retrieverAgentflow",
-                        "label": "Retriever",
+                        "label": "检索器",
                         "name": "retrieverAgentflow"
                     }
                 ],
@@ -1115,7 +1115,7 @@
             },
             "data": {
                 "id": "conditionAgentAgentflow_1",
-                "label": "Check if docs relevant",
+                "label": "检查文档是否相关",
                 "version": 1,
                 "name": "conditionAgentAgentflow",
                 "type": "ConditionAgent",
@@ -1249,14 +1249,14 @@
             },
             "data": {
                 "id": "llmAgentflow_2",
-                "label": "Generate Response",
+                "label": "生成响应",
                 "version": 1,
                 "name": "llmAgentflow",
                 "type": "LLM",
                 "color": "#64B5F6",
                 "baseClasses": ["LLM"],
                 "category": "Agent Flows",
-                "description": "Large language models to analyze user-provided inputs and generate responses",
+                "description": "大型语言模型分析用户提供的输入并生成响应",
                 "inputParams": [
                     {
                         "label": "Model",
@@ -1571,7 +1571,7 @@
             },
             "data": {
                 "id": "llmAgentflow_3",
-                "label": "Regenerate Question",
+                "label": "重新生成问题",
                 "version": 1,
                 "name": "llmAgentflow",
                 "type": "LLM",

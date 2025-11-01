@@ -68,10 +68,10 @@ const Tools = () => {
     const onUploadFile = (file) => {
         try {
             const dialogProp = {
-                title: 'Add New Tool',
+                title: '添加新工具',
                 type: 'IMPORT',
-                cancelButtonName: 'Cancel',
-                confirmButtonName: 'Save',
+                cancelButtonName: '取消',
+                confirmButtonName: '保存',
                 data: JSON.parse(file)
             }
             setDialogProps(dialogProp)
@@ -99,10 +99,10 @@ const Tools = () => {
 
     const addNew = () => {
         const dialogProp = {
-            title: 'Add New Tool',
+            title: '添加新工具',
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add'
+            cancelButtonName: '取消',
+            confirmButtonName: '添加'
         }
         setDialogProps(dialogProp)
         setShowDialog(true)
@@ -110,10 +110,10 @@ const Tools = () => {
 
     const edit = (selectedTool) => {
         const dialogProp = {
-            title: 'Edit Tool',
+            title: '编辑工具',
             type: 'EDIT',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Save',
+            cancelButtonName: '取消',
+            confirmButtonName: '保存',
             data: selectedTool
         }
         setDialogProps(dialogProp)
@@ -161,9 +161,9 @@ const Tools = () => {
                         <ViewHeader
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Tools'
-                            title='Tools'
-                            description='External functions or APIs the agent can use to take action'
+                            searchPlaceholder='搜索工具'
+                            title='工具'
+                            description='智能体可以使用的外部函数或API以执行操作'
                         >
                             <ToggleButtonGroup
                                 sx={{ borderRadius: 2, maxHeight: 40 }}
@@ -181,7 +181,7 @@ const Tools = () => {
                                     }}
                                     variant='contained'
                                     value='card'
-                                    title='Card View'
+                                    title='卡片视图'
                                 >
                                     <IconLayoutGrid />
                                 </ToggleButton>
@@ -193,7 +193,7 @@ const Tools = () => {
                                     }}
                                     variant='contained'
                                     value='list'
-                                    title='List View'
+                                    title='列表视图'
                                 >
                                     <IconList />
                                 </ToggleButton>
@@ -206,7 +206,7 @@ const Tools = () => {
                                     startIcon={<IconFileUpload />}
                                     sx={{ borderRadius: 2, height: 40 }}
                                 >
-                                    Load
+                                    加载
                                 </PermissionButton>
                                 <input
                                     style={{ display: 'none' }}
@@ -225,7 +225,7 @@ const Tools = () => {
                                     startIcon={<IconPlus />}
                                     sx={{ borderRadius: 2, height: 40 }}
                                 >
-                                    Create
+                                    创建
                                 </StyledPermissionButton>
                             </ButtonGroup>
                         </ViewHeader>
@@ -260,7 +260,7 @@ const Tools = () => {
                                         alt='ToolEmptySVG'
                                     />
                                 </Box>
-                                <div>No Tools Created Yet</div>
+                                <div>尚未创建工具</div>
                             </Stack>
                         )}
                     </Stack>

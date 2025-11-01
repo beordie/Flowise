@@ -180,7 +180,7 @@ const DocumentStoreDetails = () => {
 
     const listLoaders = () => {
         const dialogProp = {
-            title: 'Select Document Loader'
+            title: '选择文档加载器'
         }
         setDocumentLoaderListDialogProps(dialogProp)
         setShowDocumentLoaderListDialog(true)
@@ -206,7 +206,7 @@ const DocumentStoreDetails = () => {
                 setBackdropLoading(false)
                 if (deleteResp.data) {
                     enqueueSnackbar({
-                        message: 'Store, Loader and associated document chunks deleted',
+                        message: '存储、加载器和相关文档块已删除',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -223,7 +223,7 @@ const DocumentStoreDetails = () => {
                 setBackdropLoading(false)
                 setError(error)
                 enqueueSnackbar({
-                    message: `Failed to delete Document Store: ${
+                    message: `删除文档存储失败: ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -244,7 +244,7 @@ const DocumentStoreDetails = () => {
                 setBackdropLoading(false)
                 if (deleteResp.data) {
                     enqueueSnackbar({
-                        message: 'Loader and associated document chunks deleted',
+                        message: '加载器和相关文档块已删除',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -261,7 +261,7 @@ const DocumentStoreDetails = () => {
                 setError(error)
                 setBackdropLoading(false)
                 enqueueSnackbar({
-                    message: `Failed to delete Document Loader: ${
+                    message: `删除文档加载器失败: ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -308,10 +308,10 @@ const DocumentStoreDetails = () => {
 
     const onStoreRefresh = async (storeId) => {
         const confirmPayload = {
-            title: `Refresh all loaders and upsert all chunks?`,
-            description: `This will re-process all loaders and upsert all chunks. This action might take some time.`,
-            confirmButtonName: 'Refresh',
-            cancelButtonName: 'Cancel'
+            title: `刷新所有加载器并上传所有块？`,
+            description: `这将重新处理所有加载器并上传所有块。此操作可能需要一些时间。`,
+            confirmButtonName: '刷新',
+            cancelButtonName: '取消'
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -322,7 +322,7 @@ const DocumentStoreDetails = () => {
                 const resp = await documentsApi.refreshLoader(storeId)
                 if (resp.data) {
                     enqueueSnackbar({
-                        message: 'Document store refresh successfully!',
+                        message: '文档存储刷新成功！',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -338,7 +338,7 @@ const DocumentStoreDetails = () => {
             } catch (error) {
                 setBackdropLoading(false)
                 enqueueSnackbar({
-                    message: `Failed to refresh document store: ${
+                    message: `刷新文档存储失败: ${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -362,10 +362,10 @@ const DocumentStoreDetails = () => {
             id: documentStore.id
         }
         const dialogProp = {
-            title: 'Edit Document Store',
+            title: '编辑文档存储',
             type: 'EDIT',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Update',
+            cancelButtonName: '取消',
+            confirmButtonName: '更新',
             data: data
         }
         setDialogProps(dialogProp)
@@ -442,7 +442,7 @@ const DocumentStoreDetails = () => {
                                     onClick={onConfirm}
                                     size='small'
                                     color='primary'
-                                    title='Refresh Document Store'
+                                    title='刷新文档存储'
                                 >
                                     <IconRefresh />
                                 </PermissionIconButton>
@@ -454,7 +454,7 @@ const DocumentStoreDetails = () => {
                                 startIcon={<IconPlus />}
                                 onClick={listLoaders}
                             >
-                                Add Document Loader
+                                添加文档加载器
                             </StyledPermissionButton>
                             <Button
                                 id='document-store-header-action-button'
@@ -468,7 +468,7 @@ const DocumentStoreDetails = () => {
                                 sx={{ minWidth: 150 }}
                                 endIcon={<KeyboardArrowDownIcon />}
                             >
-                                More Actions
+                                更多操作
                             </Button>
                             <StyledMenu
                                 id='document-store-header-menu'
@@ -485,7 +485,7 @@ const DocumentStoreDetails = () => {
                                     disableRipple
                                 >
                                     <FileChunksIcon />
-                                    View & Edit Chunks
+                                    查看和编辑块
                                 </MenuItem>
                                 <Available permission={'documentStores:upsert-config'}>
                                     <MenuItem
@@ -494,7 +494,7 @@ const DocumentStoreDetails = () => {
                                         disableRipple
                                     >
                                         <NoteAddIcon />
-                                        Upsert All Chunks
+                                        上传所有块
                                     </MenuItem>
                                 </Available>
                                 <MenuItem
@@ -503,17 +503,17 @@ const DocumentStoreDetails = () => {
                                     disableRipple
                                 >
                                     <SearchIcon />
-                                    Retrieval Query
+                                    检索查询
                                 </MenuItem>
                                 <Available permission={'documentStores:upsert-config'}>
                                     <MenuItem
                                         disabled={documentStore?.totalChunks <= 0 || documentStore?.status !== 'UPSERTED'}
                                         onClick={() => onStoreRefresh(documentStore.id)}
                                         disableRipple
-                                        title='Re-process all loaders and upsert all chunks'
+                                        title='重新处理所有加载器并上传所有块'
                                     >
                                         <RefreshIcon />
-                                        Refresh
+                                        刷新
                                     </MenuItem>
                                 </Available>
                                 <Divider sx={{ my: 0.5 }} />
@@ -522,7 +522,7 @@ const DocumentStoreDetails = () => {
                                     disableRipple
                                 >
                                     <FileDeleteIcon />
-                                    Delete
+                                    删除
                                 </MenuItem>
                             </StyledMenu>
                         </ViewHeader>
@@ -543,7 +543,7 @@ const DocumentStoreDetails = () => {
                                     }}
                                 >
                                     <IconVectorBezier2 style={{ marginRight: 5 }} size={17} />
-                                    Chatflows Used:
+                                    使用的聊天流程：
                                 </div>
                                 {getSpecificDocumentStore.data.whereUsed.map((chatflowUsed, index) => (
                                     <Chip
@@ -571,14 +571,14 @@ const DocumentStoreDetails = () => {
                                         alt='doc_store_details_emptySVG'
                                     />
                                 </Box>
-                                <div>No Document Added Yet</div>
+                                <div>尚未添加文档</div>
                                 <StyledButton
                                     variant='contained'
                                     sx={{ borderRadius: 2, height: '100%', mt: 2, color: 'white' }}
                                     startIcon={<IconPlus />}
                                     onClick={listLoaders}
                                 >
-                                    Add Document Loader
+                                    添加文档加载器
                                 </StyledButton>
                             </Stack>
                         ) : (
@@ -698,7 +698,7 @@ const DocumentStoreDetails = () => {
                                     color='warning'
                                     style={{ color: 'darkred', fontWeight: 500, fontStyle: 'italic', fontSize: 12 }}
                                 >
-                                    Some files are pending processing. Please Refresh to get the latest status.
+                                    部分文件正在处理中。请刷新以获取最新状态。
                                 </Typography>
                             </div>
                         )}
@@ -769,7 +769,7 @@ function LoaderRow(props) {
         if (source && typeof source === 'string' && source.startsWith('[') && source.endsWith(']')) {
             return JSON.parse(source).join(', ')
         }
-        return source || 'No source'
+        return source || '无来源'
     }
 
     return (
@@ -811,7 +811,7 @@ function LoaderRow(props) {
                                 onClick={(e) => handleClick(e)}
                                 endIcon={<KeyboardArrowDownIcon />}
                             >
-                                Options
+                                选项
                             </Button>
                             <StyledMenu
                                 id='document-store-actions-customized-menu'
@@ -825,32 +825,32 @@ function LoaderRow(props) {
                                 <Available permission={'documentStores:preview-process'}>
                                     <MenuItem onClick={props.onEditClick} disableRipple>
                                         <FileEditIcon />
-                                        Preview & Process
+                                        预览和处理
                                     </MenuItem>
                                 </Available>
                                 <Available permission={'documentStores:preview-process'}>
                                     <MenuItem onClick={props.onViewChunksClick} disableRipple>
                                         <FileChunksIcon />
-                                        View & Edit Chunks
+                                        查看和编辑块
                                     </MenuItem>
                                 </Available>
                                 <Available permission={'documentStores:preview-process'}>
                                     <MenuItem onClick={props.onChunkUpsert} disableRipple>
                                         <NoteAddIcon />
-                                        Upsert Chunks
+                                        上传块
                                     </MenuItem>
                                 </Available>
                                 <Available permission={'documentStores:preview-process'}>
                                     <MenuItem onClick={props.onViewUpsertAPI} disableRipple>
                                         <CodeIcon />
-                                        View API
+                                        查看API
                                     </MenuItem>
                                 </Available>
                                 <Divider sx={{ my: 0.5 }} />
                                 <Available permission={'documentStores:delete-loader'}>
                                     <MenuItem onClick={props.onDeleteClick} disableRipple>
                                         <FileDeleteIcon />
-                                        Delete
+                                        删除
                                     </MenuItem>
                                 </Available>
                             </StyledMenu>

@@ -27,24 +27,24 @@ import { Dropdown } from '@/ui-component/dropdown/Dropdown'
 
 const importModes = [
     {
-        label: 'Add & Overwrite',
+        label: '添加并覆盖',
         name: 'overwriteIfExist',
-        description: 'Add keys and overwrite existing keys with the same name'
+        description: '添加密钥并覆盖同名的现有密钥'
     },
     {
-        label: 'Add & Ignore',
+        label: '添加并忽略',
         name: 'ignoreIfExist',
-        description: 'Add keys and ignore existing keys with the same name'
+        description: '添加密钥并忽略同名的现有密钥'
     },
     {
-        label: 'Add & Verify',
+        label: '添加并验证',
         name: 'errorIfExist',
-        description: 'Add Keys and throw error if key with same name exists'
+        description: '添加密钥，如果同名密钥已存在则抛出错误'
     },
     {
-        label: 'Replace All',
+        label: '替换所有',
         name: 'replaceAll',
-        description: 'Replace all keys with the imported keys'
+        description: '用导入的密钥替换所有密钥'
     }
 ]
 
@@ -53,7 +53,7 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
 
     const dispatch = useDispatch()
 
-    // ==============================|| Snackbar ||============================== //
+    // ==============================|| 通知栏 ||============================== //
 
     useNotifier()
 
@@ -84,7 +84,7 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             const createResp = await apikeyAPI.importAPI(obj)
             if (createResp.data) {
                 enqueueSnackbar({
-                    message: 'Imported keys successfully!',
+                    message: '成功导入密钥！',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -99,9 +99,7 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             }
         } catch (error) {
             enqueueSnackbar({
-                message: `Failed to import keys: ${
-                    typeof error.response.data === 'object' ? error.response.data.message : error.response.data
-                }`,
+                message: `导入密钥失败: ${typeof error.response.data === 'object' ? error.response.data.message : error.response.data}`,
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -129,14 +127,14 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <IconFileUpload style={{ marginRight: '10px' }} />
-                    Import API Keys
+                    导入API密钥
                 </div>
             </DialogTitle>
             <DialogContent>
                 <Box sx={{ p: 2 }}>
                     <Stack sx={{ position: 'relative' }} direction='row'>
                         <Typography variant='overline'>
-                            Import api.json file
+                            导入api.json文件
                             <span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
                     </Stack>
@@ -144,13 +142,13 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
                         disabled={false}
                         fileType='.json'
                         onChange={(newValue) => setSelectedFile(newValue)}
-                        value={selectedFile ?? 'Choose a file to upload'}
+                        value={selectedFile ?? '选择要上传的文件'}
                     />
                 </Box>
                 <Box sx={{ p: 2 }}>
                     <Stack sx={{ position: 'relative' }} direction='row'>
                         <Typography variant='overline'>
-                            Import Mode
+                            导入模式
                             <span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
                     </Stack>
@@ -159,7 +157,7 @@ const UploadJSONFileDialog = ({ show, dialogProps, onCancel, onConfirm }) => {
                         name={importMode}
                         options={importModes}
                         onSelect={(newValue) => setImportMode(newValue)}
-                        value={importMode ?? 'choose an option'}
+                        value={importMode ?? '选择一个选项'}
                     />
                 </Box>
             </DialogContent>

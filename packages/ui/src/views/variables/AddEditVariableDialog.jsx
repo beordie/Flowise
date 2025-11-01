@@ -28,14 +28,14 @@ import { Dropdown } from '@/ui-component/dropdown/Dropdown'
 
 const variableTypes = [
     {
-        label: 'Static',
+        label: '静态',
         name: 'static',
-        description: 'Variable value will be read from the value entered below'
+        description: '变量值将从下面输入的值读取'
     },
     {
-        label: 'Runtime',
+        label: '运行时',
         name: 'runtime',
-        description: 'Variable value will be read from .env file'
+        description: '变量值将从.env文件读取'
     }
 ]
 
@@ -97,7 +97,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
             const createResp = await variablesApi.createVariable(obj)
             if (createResp.data) {
                 enqueueSnackbar({
-                    message: 'New Variable added',
+                    message: '已添加新变量',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -113,7 +113,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
         } catch (err) {
             if (setError) setError(err)
             enqueueSnackbar({
-                message: `Failed to add new Variable: ${
+                message: `添加新变量失败: ${
                     typeof err.response.data === 'object' ? err.response.data.message : err.response.data
                 }`,
                 options: {
@@ -142,7 +142,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
             const saveResp = await variablesApi.updateVariable(variable.id, saveObj)
             if (saveResp.data) {
                 enqueueSnackbar({
-                    message: 'Variable saved',
+                    message: '变量已保存',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -158,7 +158,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
         } catch (err) {
             if (setError) setError(err)
             enqueueSnackbar({
-                message: `Failed to save Variable: ${
+                message: `保存变量失败: ${
                     typeof err.response.data === 'object' ? err.response.data.message : err.response.data
                 }`,
                 options: {
@@ -188,14 +188,14 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <IconVariable style={{ marginRight: '10px' }} />
-                    {dialogProps.type === 'ADD' ? 'Add Variable' : 'Edit Variable'}
+                    {dialogProps.type === 'ADD' ? '添加变量' : '编辑变量'}
                 </div>
             </DialogTitle>
             <DialogContent>
                 <Box sx={{ p: 2 }}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <Typography>
-                            Variable Name<span style={{ color: 'red' }}>&nbsp;*</span>
+                            变量名称<span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
 
                         <div style={{ flexGrow: 1 }}></div>
@@ -214,7 +214,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
                 <Box sx={{ p: 2 }}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                         <Typography>
-                            Type<span style={{ color: 'red' }}>&nbsp;*</span>
+                            类型<span style={{ color: 'red' }}>&nbsp;*</span>
                         </Typography>
                         <div style={{ flexGrow: 1 }}></div>
                     </div>
@@ -231,7 +231,7 @@ const AddEditVariableDialog = ({ show, dialogProps, onCancel, onConfirm, setErro
                     <Box sx={{ p: 2 }}>
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
                             <Typography>
-                                Value<span style={{ color: 'red' }}>&nbsp;*</span>
+                                值<span style={{ color: 'red' }}>&nbsp;*</span>
                             </Typography>
                             <div style={{ flexGrow: 1 }}></div>
                         </div>

@@ -27,8 +27,8 @@ const CredentialInputHandler = ({ inputParam, data, disabled = false }) => {
             value,
             inputParam,
             disabled,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         setExpandDialogProps(dialogProp)
         setShowExpandDialog(true)
@@ -58,7 +58,7 @@ const CredentialInputHandler = ({ inputParam, data, disabled = false }) => {
                                         height: 25,
                                         width: 25
                                     }}
-                                    title='Expand'
+                                    title='展开'
                                     color='primary'
                                     onClick={() => onExpandDialogClicked(data[inputParam.name] ?? inputParam.default ?? '', inputParam)}
                                 >
@@ -117,7 +117,7 @@ const CredentialInputHandler = ({ inputParam, data, disabled = false }) => {
                                 name={inputParam.name}
                                 options={inputParam.options}
                                 onSelect={(newValue) => (data[inputParam.name] = newValue)}
-                                value={data[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                value={data[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                             />
                         )}
                     </Box>

@@ -147,7 +147,7 @@ const DeleteDocStoreDialog = ({ show, dialogProps, onCancel, onDelete }) => {
                 {dialogProps.type === 'STORE' && dialogProps.recordManagerConfig && (
                     <FormControlLabel
                         control={<Checkbox checked={removeFromVS} onChange={(event) => setRemoveFromVS(event.target.checked)} />}
-                        label='Remove data from vector store and record manager'
+                        label='从向量存储和记录管理器中删除数据'
                     />
                 )}
                 {removeFromVS && (
@@ -217,17 +217,17 @@ const DeleteDocStoreDialog = ({ show, dialogProps, onCancel, onDelete }) => {
                             </Table>
                         </TableContainer>
                         <span style={{ marginTop: '30px', fontStyle: 'italic', color: '#b35702' }}>
-                            * Only data that were upserted with Record Manager will be deleted from vector store
+                            * 只有通过记录管理器上传的数据才会从向量存储中删除
                         </span>
                     </div>
                 )}
             </DialogContent>
             <DialogActions sx={{ pr: 3, pb: 3 }}>
                 <Button onClick={onCancel} color='primary'>
-                    Cancel
+                    取消
                 </Button>
                 <Button variant='contained' onClick={() => onDelete(dialogProps.type, dialogProps.file, removeFromVS)} color='error'>
-                    Delete
+                    删除
                 </Button>
             </DialogActions>
         </Dialog>

@@ -24,11 +24,11 @@ const HowToUseVariablesDialog = ({ show, onCancel }) => {
             aria-describedby='alert-dialog-description'
         >
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
-                How To Use Variables
+                如何使用变量
             </DialogTitle>
             <DialogContent>
                 <p style={{ marginBottom: '10px' }}>
-                    Variables can be used in Custom Tool, Custom Function, Custom Loader, If Else Function with the $ prefix.
+                    变量可以在自定义工具、自定义函数、自定义加载器和条件函数中使用，以$前缀开头。
                 </p>
                 <CodeEditor
                     disabled={true}
@@ -39,7 +39,7 @@ const HowToUseVariablesDialog = ({ show, onCancel }) => {
                     basicSetup={{ highlightActiveLine: false, highlightActiveLineGutter: false }}
                 />
                 <p style={{ marginBottom: '10px' }}>
-                    Variables can also be used in Text Field parameter of any node. For example, in System Message of Agent:
+                    变量也可以在任何节点的文本字段参数中使用。例如，在Agent的系统消息中：
                 </p>
                 <CodeEditor
                     disabled={true}
@@ -50,11 +50,10 @@ const HowToUseVariablesDialog = ({ show, onCancel }) => {
                     basicSetup={{ highlightActiveLine: false, highlightActiveLineGutter: false }}
                 />
                 <p style={{ marginBottom: '10px' }}>
-                    If variable type is Static, the value will be retrieved as it is. If variable type is Runtime, the value will be
-                    retrieved from .env file.
+                    如果变量类型为静态，将直接使用设置的值。如果变量类型为运行时，将从.env文件中获取值。
                 </p>
                 <p style={{ marginBottom: '10px' }}>
-                    You can also override variable values in API overrideConfig using <b>vars</b>:
+                    您还可以在API的overrideConfig中使用<b>vars</b>覆盖变量值：
                 </p>
                 <CodeEditor
                     disabled={true}
@@ -65,10 +64,11 @@ const HowToUseVariablesDialog = ({ show, onCancel }) => {
                     basicSetup={{ highlightActiveLine: false, highlightActiveLineGutter: false }}
                 />
                 <p>
-                    Read more from{' '}
+                    从{' '}
                     <a target='_blank' rel='noreferrer' href='https://docs.flowiseai.com/using-flowise/variables'>
-                        docs
+                        文档
                     </a>
+                    了解更多
                 </p>
             </DialogContent>
         </Dialog>

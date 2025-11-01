@@ -27,7 +27,7 @@ import doc_store_empty from '@/assets/images/doc_store_empty.svg'
 import { baseURL, gridSpacing } from '@/store/constant'
 import { DocumentStoreTable } from '@/ui-component/table/DocumentStoreTable'
 
-// ==============================|| DOCUMENTS ||============================== //
+// ==============================|| 文档存储 ||============================== //
 
 const Documents = () => {
     const theme = useTheme()
@@ -66,10 +66,10 @@ const Documents = () => {
 
     const addNew = () => {
         const dialogProp = {
-            title: 'Add New Document Store',
+            title: '添加新文档存储',
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add'
+            cancelButtonName: '取消',
+            confirmButtonName: '添加'
         }
         setDialogProps(dialogProp)
         setShowDialog(true)
@@ -154,9 +154,9 @@ const Documents = () => {
                     <ViewHeader
                         onSearchChange={onSearchChange}
                         search={hasDocStores}
-                        searchPlaceholder='Search Name'
-                        title='Document Store'
-                        description='Store and upsert documents for LLM retrieval (RAG)'
+                        searchPlaceholder='搜索名称'
+                        title='文档存储'
+                        description='存储和更新用于LLM检索的文档（RAG）'
                     >
                         {hasDocStores && (
                             <ToggleButtonGroup
@@ -174,7 +174,7 @@ const Documents = () => {
                                     }}
                                     variant='contained'
                                     value='card'
-                                    title='Card View'
+                                    title='卡片视图'
                                 >
                                     <IconLayoutGrid />
                                 </ToggleButton>
@@ -186,7 +186,7 @@ const Documents = () => {
                                     }}
                                     variant='contained'
                                     value='list'
-                                    title='List View'
+                                    title='列表视图'
                                 >
                                     <IconList />
                                 </ToggleButton>
@@ -200,7 +200,7 @@ const Documents = () => {
                             startIcon={<IconPlus />}
                             id='btn_createVariable'
                         >
-                            Add New
+                            添加新存储
                         </StyledPermissionButton>
                     </ViewHeader>
                     {!hasDocStores ? (
@@ -212,7 +212,7 @@ const Documents = () => {
                                     alt='doc_store_empty'
                                 />
                             </Box>
-                            <div>No Document Stores Created Yet</div>
+                            <div>暂未创建任何文档存储</div>
                         </Stack>
                     ) : (
                         <React.Fragment>
@@ -235,7 +235,7 @@ const Documents = () => {
                                     onRowClick={(row) => goToDocumentStore(row.id)}
                                 />
                             )}
-                            {/* Pagination and Page Size Controls */}
+                            {/* 分页和页面大小控制 */}
                             <TablePagination currentPage={currentPage} limit={pageLimit} total={total} onChange={onChange} />
                         </React.Fragment>
                     )}

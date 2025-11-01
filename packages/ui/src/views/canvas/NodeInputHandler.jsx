@@ -191,8 +191,8 @@ const NodeInputHandler = ({
             nodes: reactFlowInstance?.getNodes() || [],
             edges: reactFlowInstance?.getEdges() || [],
             nodeId: data.id,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         if (inputParam.acceptVariable) {
             setExpandRichDialogProps(dialogProps)
@@ -208,8 +208,8 @@ const NodeInputHandler = ({
             data,
             inputParam,
             disabled,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         setConditionDialogProps(dialogProps)
         setShowConditionDialog(true)
@@ -235,8 +235,8 @@ const NodeInputHandler = ({
             relativeLinksMethod,
             limit,
             selectedLinks,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         setManageScrapedLinksDialogProps(dialogProps)
         setShowManageScrapedLinksDialog(true)
@@ -316,7 +316,7 @@ const NodeInputHandler = ({
                     for (const node of nodes) {
                         preLoadOptions.push({
                             value: `$${node.id}`,
-                            label: `Output from ${node.data.id}`
+                            label: `来自 ${node.data.id} 的输出`
                         })
                     }
                 }
@@ -341,7 +341,7 @@ const NodeInputHandler = ({
                                     for (const key of keys) {
                                         preLoadOptions.push({
                                             value: `$flow.state.${key}`,
-                                            label: `Value from ${key}`
+                                            label: `来自 ${key} 的值`
                                         })
                                     }
                                 } catch (error) {
@@ -417,7 +417,7 @@ const NodeInputHandler = ({
                 preLoadOptions.push({
                     name: `{{ ${node.data.id} }}`,
                     label: `{{ ${node.data.id} }}`,
-                    description: `Output from ${node.data.id}`
+                    description: `来自 ${node.data.id} 的输出`
                 })
             }
         }
@@ -485,18 +485,18 @@ const NodeInputHandler = ({
     const editAsyncOption = (inputParamName, inputValue) => {
         if (inputParamName === 'selectedTool') {
             setAsyncOptionEditDialogProps({
-                title: 'Edit Tool',
+                title: '编辑工具',
                 type: 'EDIT',
-                cancelButtonName: 'Cancel',
-                confirmButtonName: 'Save',
+                cancelButtonName: '取消',
+                confirmButtonName: '保存',
                 toolId: inputValue
             })
         } else if (inputParamName === 'selectedAssistant') {
             setAsyncOptionEditDialogProps({
-                title: 'Edit Assistant',
+                title: '编辑助手',
                 type: 'EDIT',
-                cancelButtonName: 'Cancel',
-                confirmButtonName: 'Save',
+                cancelButtonName: '取消',
+                confirmButtonName: '保存',
                 assistantId: inputValue
             })
         }
@@ -506,17 +506,17 @@ const NodeInputHandler = ({
     const addAsyncOption = (inputParamName) => {
         if (inputParamName === 'selectedTool') {
             setAsyncOptionEditDialogProps({
-                title: 'Add New Tool',
+                title: '添加新工具',
                 type: 'ADD',
-                cancelButtonName: 'Cancel',
-                confirmButtonName: 'Add'
+                cancelButtonName: '取消',
+                confirmButtonName: '添加'
             })
         } else if (inputParamName === 'selectedAssistant') {
             setAsyncOptionEditDialogProps({
-                title: 'Add New Assistant',
+                title: '添加新助手',
                 type: 'ADD',
-                cancelButtonName: 'Cancel',
-                confirmButtonName: 'Add'
+                cancelButtonName: '取消',
+                confirmButtonName: '添加'
             })
         }
         setAsyncOptionEditDialog(inputParamName)
@@ -584,7 +584,7 @@ const NodeInputHandler = ({
 
     const displayWarning = () => {
         enqueueSnackbar({
-            message: 'Please fill in all mandatory fields.',
+            message: '请填写所有必填字段。',
             options: {
                 key: new Date().getTime() + Math.random(),
                 variant: 'warning',
@@ -600,7 +600,7 @@ const NodeInputHandler = ({
     const generateDocStoreToolDesc = async (storeId) => {
         if (!storeId) {
             enqueueSnackbar({
-                message: 'Please select a knowledge base',
+                message: '请选择知识库',
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -640,7 +640,7 @@ const NodeInputHandler = ({
                     // Update the input value directly
                     data.inputs[inputParam.name] = content
                     enqueueSnackbar({
-                        message: 'Document Store Tool Description generated successfully',
+                        message: '文档存储工具描述生成成功',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -736,8 +736,8 @@ const NodeInputHandler = ({
         if (existingModel) {
             // Open prompt generator dialog directly with existing model
             setPromptGeneratorDialogProps({
-                title: 'Generate Instructions',
-                description: 'You can generate a prompt template by sharing basic details about your task.',
+                title: '生成指令',
+                description: '你可以通过分享任务的基本详情来生成提示模板。',
                 data: {
                     selectedChatModel: {
                         name: existingModel,
@@ -757,8 +757,8 @@ const NodeInputHandler = ({
         setModelSelectionCallback(() => async (selectedModel) => {
             // After model selection, open prompt generator dialog
             setPromptGeneratorDialogProps({
-                title: 'Generate Instructions',
-                description: 'You can generate a prompt template by sharing basic details about your task.',
+                title: '生成指令',
+                description: '你可以通过分享任务的基本详情来生成提示模板。',
                 data: { selectedChatModel: selectedModel }
             })
             setPromptGeneratorDialogOpen(true)
@@ -841,7 +841,7 @@ const NodeInputHandler = ({
                                         onClick={() => onShowPromptHubButtonClicked()}
                                         endIcon={<IconAutoFixHigh />}
                                     >
-                                        Langchain Hub
+                                        Langchain 中心
                                     </Button>
                                     <PromptLangsmithHubDialog
                                         promptType={inputParam.name}
@@ -863,7 +863,7 @@ const NodeInputHandler = ({
                                     variant='outlined'
                                     onClick={() => setIsNvidiaNIMDialogOpen(true)}
                                 >
-                                    Setup NIM Locally
+                                    本地设置 NIM
                                 </Button>
                             </>
                         )}
@@ -902,13 +902,13 @@ const NodeInputHandler = ({
                                 </Button>
                             )}
                             {inputParam.acceptVariable && inputParam.type === 'string' && (
-                                <Tooltip title='Type {{ to select variables'>
+                                <Tooltip title='输入 {{ 选择变量'>
                                     <IconVariable size={20} style={{ color: 'teal' }} />
                                 </Tooltip>
                             )}
                             {inputParam.generateDocStoreDescription && (
                                 <IconButton
-                                    title='Generate knowledge base description'
+                                    title='生成知识库描述'
                                     sx={{
                                         height: 25,
                                         width: 25
@@ -922,7 +922,7 @@ const NodeInputHandler = ({
                             )}
                             {inputParam.generateInstruction && (
                                 <IconButton
-                                    title='Generate instructions'
+                                    title='生成指令'
                                     sx={{
                                         height: 25,
                                         width: 25,
@@ -943,7 +943,7 @@ const NodeInputHandler = ({
                                         width: 25,
                                         ml: 0.5
                                     }}
-                                    title='Expand'
+                                    title='展开'
                                     color='primary'
                                     onClick={() =>
                                         onExpandDialogClicked(data.inputs[inputParam.name] ?? inputParam.default ?? '', inputParam)
@@ -1019,7 +1019,7 @@ const NodeInputHandler = ({
                                 disabled={disabled}
                                 fileType={inputParam.fileType || '*'}
                                 onChange={(newValue) => (data.inputs[inputParam.name] = newValue)}
-                                value={data.inputs[inputParam.name] ?? inputParam.default ?? 'Choose a file to upload'}
+                                value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择文件上传'}
                             />
                         )}
                         {inputParam.type === 'boolean' && (
@@ -1049,7 +1049,7 @@ const NodeInputHandler = ({
                                                 setReloadTimestamp(Date.now().toString())
                                             }}
                                         >
-                                            See Example
+                                            查看示例
                                         </Button>
                                     )}
                                 </div>
@@ -1153,7 +1153,7 @@ const NodeInputHandler = ({
                                     options={getDropdownOptions(inputParam)}
                                     freeSolo={inputParam.freeSolo}
                                     onSelect={(newValue) => handleDataChange({ inputParam, newValue })}
-                                    value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                    value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                                 />
                             </div>
                         )}
@@ -1164,7 +1164,7 @@ const NodeInputHandler = ({
                                     name={inputParam.name}
                                     options={getDropdownOptions(inputParam)}
                                     onSelect={(newValue) => handleDataChange({ inputParam, newValue })}
-                                    value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                    value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                                 />
                             </div>
                         )}
@@ -1179,7 +1179,7 @@ const NodeInputHandler = ({
                                         disabled={disabled}
                                         name={inputParam.name}
                                         nodeData={data}
-                                        value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                        value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                                         freeSolo={inputParam.freeSolo}
                                         multiple={inputParam.type === 'asyncMultiOptions'}
                                         isCreateNewOption={EDITABLE_OPTIONS.includes(inputParam.name)}
@@ -1191,7 +1191,7 @@ const NodeInputHandler = ({
                                     />
                                     {EDITABLE_OPTIONS.includes(inputParam.name) && data.inputs[inputParam.name] && (
                                         <IconButton
-                                            title='Edit'
+                                            title='编辑'
                                             color='primary'
                                             size='small'
                                             onClick={() => editAsyncOption(inputParam.name, data.inputs[inputParam.name])}
@@ -1201,7 +1201,7 @@ const NodeInputHandler = ({
                                     )}
                                     {inputParam.refresh && (
                                         <IconButton
-                                            title='Refresh'
+                                            title='刷新'
                                             color='primary'
                                             size='small'
                                             onClick={() => setReloadTimestamp(Date.now().toString())}
@@ -1253,7 +1253,7 @@ const NodeInputHandler = ({
                                             )
                                         }
                                     >
-                                        Manage Links
+                                        管理链接
                                     </Button>
                                     <ManageScrapedLinksDialog
                                         show={showManageScrapedLinksDialog}
@@ -1335,7 +1335,7 @@ const NodeInputHandler = ({
                 maxWidth='sm'
                 fullWidth
             >
-                <DialogTitle id='model-selection-dialog-title'>Select Model</DialogTitle>
+                <DialogTitle id='model-selection-dialog-title'>选择模型</DialogTitle>
                 <DialogContent>
                     <Box sx={{ mt: 2 }}>
                         <Box sx={{ px: 2 }}>
@@ -1376,7 +1376,7 @@ const NodeInputHandler = ({
                             setSelectedTempChatModel({})
                         }}
                     >
-                        Cancel
+                        取消
                     </Button>
                     <Button
                         disabled={!selectedTempChatModel || Object.keys(selectedTempChatModel).length === 0}
@@ -1389,7 +1389,7 @@ const NodeInputHandler = ({
                         }}
                         variant='contained'
                     >
-                        Confirm
+                        确认
                     </Button>
                 </DialogActions>
             </Dialog>
@@ -1408,7 +1408,7 @@ const NodeInputHandler = ({
                         setPromptGeneratorDialogOpen(false)
                     } catch (error) {
                         enqueueSnackbar({
-                            message: 'Error setting generated instruction',
+                            message: '设置生成的指令时出错',
                             options: {
                                 key: new Date().getTime() + Math.random(),
                                 variant: 'error',

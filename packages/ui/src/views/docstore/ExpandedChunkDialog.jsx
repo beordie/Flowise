@@ -93,15 +93,15 @@ const ExpandedChunkDialog = ({ show, dialogProps, onCancel, onChunkEdit, onDelet
                                 onClick={() => setIsEdit(true)}
                                 size='small'
                                 color='primary'
-                                title='Edit Chunk'
+                                title='编辑块'
                                 sx={{ ml: 2 }}
                             >
                                 <IconEdit />
                             </PermissionIconButton>
                         )}
                         {isEdit && !isReadOnly && (
-                            <Button onClick={() => onEditCancel()} color='primary' title='Cancel' sx={{ ml: 2 }}>
-                                Cancel
+                            <Button onClick={() => onEditCancel()} color='primary' title='取消' sx={{ ml: 2 }}>
+                                取消
                             </Button>
                         )}
                         {isEdit && !isReadOnly && (
@@ -109,11 +109,11 @@ const ExpandedChunkDialog = ({ show, dialogProps, onCancel, onChunkEdit, onDelet
                                 permissionId={'documentStores:preview-process'}
                                 onClick={() => onEditSaved(true)}
                                 color='primary'
-                                title='Save'
+                                title='保存'
                                 variant='contained'
                                 sx={{ ml: 2, mr: 1 }}
                             >
-                                Save
+                                保存
                             </PermissionButton>
                         )}
                         {!isEdit && !isReadOnly && (
@@ -122,13 +122,13 @@ const ExpandedChunkDialog = ({ show, dialogProps, onCancel, onChunkEdit, onDelet
                                 onClick={() => onDeleteChunk(selectedChunk)}
                                 size='small'
                                 color='error'
-                                title='Delete Chunk'
+                                title='删除块'
                                 sx={{ ml: 1 }}
                             >
                                 <IconTrash />
                             </PermissionIconButton>
                         )}
-                        <IconButton onClick={onCancel} size='small' color='inherit' title='Close' sx={{ ml: 1 }}>
+                        <IconButton onClick={onCancel} size='small' color='inherit' title='关闭' sx={{ ml: 1 }}>
                             <IconX />
                         </IconButton>
                     </div>
@@ -157,7 +157,7 @@ const ExpandedChunkDialog = ({ show, dialogProps, onCancel, onChunkEdit, onDelet
                             }}
                         >
                             <IconLanguage style={{ marginRight: 5 }} size={15} />
-                            {selectedChunk?.pageContent?.length} characters
+                            {selectedChunk?.pageContent?.length} 个字符
                         </div>
                         <div style={{ marginTop: '5px' }}></div>
                         {!isEdit && (

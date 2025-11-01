@@ -42,10 +42,10 @@ const CustomAssistantLayout = () => {
 
     const addNew = () => {
         const dialogProp = {
-            title: 'Add New Custom Assistant',
+            title: '添加新的自定义助手',
             type: 'ADD',
-            cancelButtonName: 'Cancel',
-            confirmButtonName: 'Add'
+            cancelButtonName: '取消',
+            confirmButtonName: '添加'
         }
         setDialogProps(dialogProp)
         setShowDialog(true)
@@ -98,9 +98,9 @@ const CustomAssistantLayout = () => {
                             isBackButton={true}
                             onSearchChange={onSearchChange}
                             search={true}
-                            searchPlaceholder='Search Assistants'
-                            title='Custom Assistant'
-                            description='Create custom assistants with your choice of LLMs'
+                            searchPlaceholder='搜索助手'
+                            title='自定义助手'
+                            description='使用您选择的LLM创建自定义助手'
                             onBack={() => navigate(-1)}
                         >
                             <StyledPermissionButton
@@ -110,7 +110,7 @@ const CustomAssistantLayout = () => {
                                 onClick={addNew}
                                 startIcon={<IconPlus />}
                             >
-                                Add
+                                添加
                             </StyledPermissionButton>
                         </ViewHeader>
                         {isLoading ? (
@@ -144,7 +144,7 @@ const CustomAssistantLayout = () => {
                                         alt='AssistantEmptySVG'
                                     />
                                 </Box>
-                                <div>No Custom Assistants Added Yet</div>
+                                <div>暂未添加自定义助手</div>
                             </Stack>
                         )}
                     </Stack>

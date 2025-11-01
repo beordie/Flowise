@@ -153,7 +153,7 @@ const VectorStoreQuery = () => {
             setLoading(false)
             if (updateResp.data) {
                 enqueueSnackbar({
-                    message: 'Vector Store Config Successfully Updated',
+                    message: '向量存储配置更新成功',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -169,7 +169,7 @@ const VectorStoreQuery = () => {
             setLoading(false)
             const errorData = error.response?.data || `${error.response?.status}: ${error.response?.statusText}`
             enqueueSnackbar({
-                message: `Failed to update vector store config: ${errorData}`,
+                message: `更新向量存储配置失败: ${errorData}`,
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'error',
@@ -262,7 +262,7 @@ const VectorStoreQuery = () => {
                         isBackButton={true}
                         search={false}
                         title={documentStore?.name || 'Document Store'}
-                        description='Retrieval Playground - Test your vector store retrieval settings'
+                        description='检索测试场 - 测试向量存储检索设置'
                         onBack={() => navigate(-1)}
                     >
                         <PermissionButton
@@ -273,7 +273,7 @@ const VectorStoreQuery = () => {
                             startIcon={<IconDeviceFloppy />}
                             onClick={saveConfig}
                         >
-                            Save Config
+                            保存配置
                         </PermissionButton>
                     </ViewHeader>
                     <div style={{ width: '100%' }}></div>
@@ -283,7 +283,7 @@ const VectorStoreQuery = () => {
                                 <Box>
                                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                                         <Typography variant='overline'>
-                                            Enter your Query<span style={{ color: 'red' }}>&nbsp;*</span>
+                                            输入查询内容<span style={{ color: 'red' }}>&nbsp;*</span>
                                         </Typography>
 
                                         <div style={{ flexGrow: 1 }}></div>
@@ -413,7 +413,7 @@ const VectorStoreQuery = () => {
                                             />
                                         </div>
                                         <Typography sx={{ ml: 2 }} variant='h3'>
-                                            Retrieved Documents
+                                            检索到的文档
                                             {timeTaken > -1 && (
                                                 <Typography variant='body2' sx={{ color: 'gray' }}>
                                                     Count: {documentChunks.length}. Time taken: {timeTaken} millis.

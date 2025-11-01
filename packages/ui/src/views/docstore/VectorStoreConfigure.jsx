@@ -44,7 +44,7 @@ import { initNode, showHideInputParams } from '@/utils/genericHelper'
 import useNotifier from '@/utils/useNotifier'
 
 // const
-const steps = ['Embeddings', 'Vector Store', 'Record Manager']
+const steps = ['嵌入模型', '向量存储', '记录管理器']
 
 const VectorStoreConfigure = () => {
     const navigate = useNavigate()
@@ -128,7 +128,7 @@ const VectorStoreConfigure = () => {
 
     const showEmbeddingsList = () => {
         const dialogProp = {
-            title: 'Select Embeddings Provider'
+            title: '选择嵌入模型提供商'
         }
         setDialogProps(dialogProp)
         setShowEmbeddingsListDialog(true)
@@ -152,7 +152,7 @@ const VectorStoreConfigure = () => {
 
     const showVectorStoreList = () => {
         const dialogProp = {
-            title: 'Select a Vector Store Provider'
+            title: '选择向量存储提供商'
         }
         setDialogProps(dialogProp)
         setShowVectorStoreListDialog(true)
@@ -170,7 +170,7 @@ const VectorStoreConfigure = () => {
 
     const showRecordManagerList = () => {
         const dialogProp = {
-            title: 'Select a Record Manager'
+            title: '选择记录管理器'
         }
         setDialogProps(dialogProp)
         setShowRecordManagerListDialog(true)
@@ -227,7 +227,7 @@ const VectorStoreConfigure = () => {
 
         if (!canSubmit) {
             enqueueSnackbar({
-                message: 'Please fill in all mandatory fields.',
+                message: '请填写所有必填字段。',
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'warning',
@@ -357,7 +357,7 @@ const VectorStoreConfigure = () => {
         if (saveVectorStoreConfigApi.data) {
             setLoading(false)
             enqueueSnackbar({
-                message: 'Configuration saved successfully',
+                message: '配置保存成功',
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'success',
@@ -474,7 +474,7 @@ const VectorStoreConfigure = () => {
                                     isBackButton={true}
                                     search={false}
                                     title={getSpecificDocumentStoreApi.data?.name}
-                                    description='Configure Embeddings, Vector Store and Record Manager'
+                                    description='配置嵌入模型、向量存储和记录管理器'
                                     onBack={() => navigate(-1)}
                                 >
                                     {(Object.keys(selectedEmbeddingsProvider).length > 0 ||
@@ -489,7 +489,7 @@ const VectorStoreConfigure = () => {
                                             startIcon={<IconRefresh />}
                                             onClick={() => resetVectorStoreConfig()}
                                         >
-                                            Reset
+                                            重置
                                         </Button>
                                     )}
                                     {(Object.keys(selectedEmbeddingsProvider).length > 0 ||
@@ -504,7 +504,7 @@ const VectorStoreConfigure = () => {
                                             startIcon={<IconDeviceFloppy />}
                                             onClick={() => saveVectorStoreConfig()}
                                         >
-                                            Save Config
+                                            保存配置
                                         </Button>
                                     )}
                                     {Object.keys(selectedEmbeddingsProvider).length > 0 &&

@@ -158,7 +158,7 @@ const LoaderConfigPreviewChunks = () => {
         if (!canSubmit) {
             const fieldsList = missingFields.join(', ')
             enqueueSnackbar({
-                message: `Please fill in the following mandatory fields: ${fieldsList}`,
+                message: `请填写以下必填字段：${fieldsList}`,
                 options: {
                     key: new Date().getTime() + Math.random(),
                     variant: 'warning',
@@ -190,7 +190,7 @@ const LoaderConfigPreviewChunks = () => {
             } catch (error) {
                 setLoading(false)
                 enqueueSnackbar({
-                    message: `Failed to preview chunks: ${
+                    message: `预览块失败：${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -216,7 +216,7 @@ const LoaderConfigPreviewChunks = () => {
                 setLoading(false)
                 if (saveResp.data) {
                     enqueueSnackbar({
-                        message: 'File submitted for processing. Redirecting to Document Store..',
+                        message: '文件已提交处理。正在重定向到文档存储...',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -234,7 +234,7 @@ const LoaderConfigPreviewChunks = () => {
             } catch (error) {
                 setLoading(false)
                 enqueueSnackbar({
-                    message: `Failed to process chunking: ${
+                    message: `处理分块失败：${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -397,7 +397,7 @@ const LoaderConfigPreviewChunks = () => {
                                 }}
                             >
                                 <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-                                    <StyledFab size='small' color='secondary' aria-label='back' title='Back' onClick={() => navigate(-1)}>
+                                    <StyledFab size='small' color='secondary' aria-label='back' title='返回' onClick={() => navigate(-1)}>
                                         <IconArrowLeft />
                                     </StyledFab>
                                     <Typography sx={{ ml: 2, mr: 2 }} variant='h3'>
@@ -439,7 +439,7 @@ const LoaderConfigPreviewChunks = () => {
                                         sx={{ borderRadius: 2, height: '100%' }}
                                         startIcon={<IconDatabaseImport />}
                                     >
-                                        Process
+                                        处理
                                     </StyledButton>
                                 </Box>
                             </Toolbar>
@@ -461,8 +461,8 @@ const LoaderConfigPreviewChunks = () => {
                                                 size='small'
                                                 label={
                                                     selectedDocumentLoader?.label?.toLowerCase().includes('loader')
-                                                        ? selectedDocumentLoader.label + ' name'
-                                                        : selectedDocumentLoader?.label + ' Loader Name'
+                                                        ? selectedDocumentLoader.label + ' 名称'
+                                                        : selectedDocumentLoader?.label + ' 加载器名称'
                                                 }
                                                 value={loaderName}
                                                 onChange={(e) => setLoaderName(e.target.value)}
@@ -518,7 +518,7 @@ const LoaderConfigPreviewChunks = () => {
                                                     </div>
                                                 </Box>
                                                 <Box sx={{ p: 2 }}>
-                                                    <Typography>Splitter</Typography>
+                                                    <Typography>分割器</Typography>
                                                     <Dropdown
                                                         key={JSON.stringify(selectedTextSplitter)}
                                                         name='textSplitter'
@@ -601,12 +601,12 @@ const LoaderConfigPreviewChunks = () => {
                                                     <StyledFab
                                                         color='secondary'
                                                         aria-label='preview'
-                                                        title='Preview'
+                                                        title='预览'
                                                         variant='extended'
                                                         onClick={onPreviewChunks}
                                                     >
                                                         <IconEye style={{ marginRight: '5px' }} />
-                                                        Preview Chunks
+                                                        预览块
                                                     </StyledFab>
                                                 </div>
                                             </div>
@@ -614,10 +614,10 @@ const LoaderConfigPreviewChunks = () => {
                                     {documentChunks && documentChunks.length > 0 && (
                                         <>
                                             <Typography sx={{ wordWrap: 'break-word', textAlign: 'left', mb: 2 }} variant='h3'>
-                                                {currentPreviewCount} of {totalChunks} Chunks
+                                                共 {totalChunks} 个块中的 {currentPreviewCount} 个
                                             </Typography>
                                             <Box sx={{ mb: 3 }}>
-                                                <Typography>Show Chunks in Preview</Typography>
+                                                <Typography>预览中显示的块数</Typography>
                                                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                                                     <OutlinedInput
                                                         size='small'
@@ -631,12 +631,12 @@ const LoaderConfigPreviewChunks = () => {
                                                     <StyledFab
                                                         color='secondary'
                                                         aria-label='preview'
-                                                        title='Preview'
+                                                        title='预览'
                                                         variant='extended'
                                                         onClick={onPreviewChunks}
                                                     >
                                                         <IconEye style={{ marginRight: '5px' }} />
-                                                        Preview
+                                                        预览
                                                     </StyledFab>
                                                 </div>
                                             </Box>
@@ -656,7 +656,7 @@ const LoaderConfigPreviewChunks = () => {
                                                                 <Card>
                                                                     <CardContent sx={{ p: 1 }}>
                                                                         <Typography sx={{ wordWrap: 'break-word', mb: 1 }} variant='h5'>
-                                                                            {`#${index + 1}. Characters: ${row.pageContent.length}`}
+                                                                            {`#${index + 1}. 字符数: ${row.pageContent.length}`}
                                                                         </Typography>
                                                                         <Typography sx={{ wordWrap: 'break-word' }} variant='body2'>
                                                                             {row.pageContent}

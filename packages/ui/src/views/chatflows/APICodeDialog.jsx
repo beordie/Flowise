@@ -118,7 +118,7 @@ const APICodeDialog = ({ show, dialogProps, onCancel }) => {
 
         const options = [
             {
-                label: 'No Authorization',
+                label: '无需授权',
                 name: ''
             }
         ]
@@ -132,7 +132,7 @@ const APICodeDialog = ({ show, dialogProps, onCancel }) => {
 
         if (isGlobal || hasPermission('apikeys:create')) {
             options.push({
-                label: '- Add New Key -',
+                label: '- 添加新密钥 -',
                 name: 'addnewkey'
             })
         }
@@ -743,9 +743,9 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                     <TabPanel key={index} value={value} index={index}>
                         {(codeLang === 'Embed' || codeLang === 'Share Chatbot') && chatflowApiKeyId && (
                             <>
-                                <p>You cannot use API key while embedding/sharing chatbot.</p>
+                                <p>嵌入/分享聊天机器人时不能使用API密钥。</p>
                                 <p>
-                                    Please select <b>&quot;No Authorization&quot;</b> from the dropdown at the top right corner.
+                                    请从右上角的下拉菜单中选择 <b>&quot;无需授权&quot;</b>。
                                 </p>
                             </>
                         )}
@@ -759,11 +759,11 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                     showLineNumbers={false}
                                     wrapLines
                                 />
-                                <CheckboxInput label='Show Override Config' value={checkboxVal} onChange={onCheckBoxChanged} />
+                                <CheckboxInput label='显示覆盖配置' value={checkboxVal} onChange={onCheckBoxChanged} />
                                 {checkboxVal && getConfigApi.data && getConfigApi.data.length > 0 && (
                                     <>
                                         <Typography sx={{ mt: 2 }}>
-                                            You can override existing input configuration of the chatflow with overrideConfig property.
+                                            您可以使用overrideConfig属性覆盖聊天流的现有输入配置。
                                         </Typography>
                                         <div
                                             style={{
@@ -786,17 +786,17 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                                 <IconExclamationCircle size={30} color='rgb(116,66,16)' />
                                                 <span style={{ color: 'rgb(116,66,16)', marginLeft: 10, fontWeight: 500 }}>
                                                     {
-                                                        'For security reason, override config is disabled by default. You can change this by going into Chatflow Configuration -> Security tab, and enable the property you want to override.'
+                                                        '出于安全考虑，覆盖配置默认是禁用的。您可以通过进入聊天流配置 -> 安全选项卡，启用您想要覆盖的属性。'
                                                     }
-                                                    &nbsp;Refer{' '}
+                                                    &nbsp;参考{' '}
                                                     <a
                                                         rel='noreferrer'
                                                         target='_blank'
                                                         href='https://docs.flowiseai.com/using-flowise/prediction#configuration-override'
                                                     >
-                                                        here
+                                                        这里
                                                     </a>{' '}
-                                                    for more details
+                                                    了解更多详情
                                                 </span>
                                             </div>
                                         </div>
@@ -804,7 +804,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 2 }} variant='outlined'>
                                                 <Stack sx={{ mt: 1, mb: 2, ml: 1, alignItems: 'center' }} direction='row' spacing={2}>
                                                     <IconBox />
-                                                    <Typography variant='h4'>Nodes</Typography>
+                                                    <Typography variant='h4'>节点</Typography>
                                                 </Stack>
                                                 {Object.keys(nodeConfig)
                                                     .sort()
@@ -870,7 +870,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                             <Card sx={{ borderColor: theme.palette.primary[200] + 75, p: 2 }} variant='outlined'>
                                                 <Stack sx={{ mt: 1, mb: 2, ml: 1, alignItems: 'center' }} direction='row' spacing={2}>
                                                     <IconVariable />
-                                                    <Typography variant='h4'>Variables</Typography>
+                                                    <Typography variant='h4'>变量</Typography>
                                                 </Stack>
                                                 <TableViewOnly rows={variableOverrides} columns={['name', 'type', 'enabled']} />
                                             </Card>
@@ -910,7 +910,7 @@ formData.append("openAIApiKey[openAIEmbeddings_0]", "sk-my-openai-2nd-key")`
                                             >
                                                 <IconBulb size={30} color='#2d6a4f' />
                                                 <span style={{ color: '#2d6a4f', marginLeft: 10, fontWeight: 500 }}>
-                                                    You can also specify multiple values for a config parameter by specifying the node id
+                                                    您也可以通过指定节点ID为配置参数指定多个值
                                                 </span>
                                             </div>
                                             <div style={{ padding: 10 }}>

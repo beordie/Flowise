@@ -92,10 +92,10 @@ const ChatbotFull = () => {
                                     <Stack spacing={2} alignItems='center'>
                                         <IconCircleXFilled size={50} color={theme.palette.error.main} />
                                         <Typography variant='h3' color='error.main' align='center'>
-                                            Invalid Chatbot
+                                            无效的聊天机器人
                                         </Typography>
                                         <Typography variant='body1' color='text.secondary' align='center'>
-                                            {`The chatbot you're looking for doesn't exist or requires API key authentication.`}
+                                            {`您寻找的聊天机器人不存在或需要API密钥认证。`}
                                         </Typography>
                                     </Stack>
                                 </Card>

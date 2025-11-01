@@ -14,22 +14,22 @@ import { IconRobotFace, IconBrandOpenai, IconBrandAzure } from '@tabler/icons-re
 
 const cards = [
     {
-        title: 'Custom Assistant',
-        description: 'Create custom assistant using your choice of LLMs',
+        title: '自定义助手',
+        description: '使用您选择的LLM创建自定义助手',
         icon: <IconRobotFace />,
-        iconText: 'Custom',
+        iconText: '自定义',
         gradient: 'linear-gradient(135deg, #fff8e14e 0%, #ffcc802f 100%)'
     },
     {
-        title: 'OpenAI Assistant',
-        description: 'Create assistant using OpenAI Assistant API',
+        title: 'OpenAI 助手',
+        description: '使用OpenAI Assistant API创建助手',
         icon: <IconBrandOpenai />,
         iconText: 'OpenAI',
         gradient: 'linear-gradient(135deg, #c9ffd85f 0%, #a0f0b567 100%)'
     },
     {
-        title: 'Azure Assistant (Coming Soon)',
-        description: 'Create assistant using Azure Assistant API',
+        title: 'Azure 助手（即将推出）',
+        description: '使用Azure Assistant API创建助手',
         icon: <IconBrandAzure />,
         iconText: 'Azure',
         gradient: 'linear-gradient(135deg, #c4e1ff57 0%, #80b7ff5a 100%)'
@@ -123,8 +123,8 @@ const Assistants = () => {
             <MainCard>
                 <Stack flexDirection='column' sx={{ gap: 3 }}>
                     <ViewHeader
-                        title='Assistants'
-                        description='Chat assistants with instructions, tools, and files to respond to user queries'
+                        title='助手'
+                        description='带指令、工具和文件的聊天助手，用于响应用户查询'
                     />
                     <FeatureCards />
                 </Stack>

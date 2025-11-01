@@ -102,17 +102,17 @@ export const defaultThemeConfig = {
     },
     tooltip: {
         showTooltip: true,
-        tooltipMessage: 'Hi There 👋!',
+        tooltipMessage: '你好 👋!',
         tooltipBackgroundColor: 'black',
         tooltipTextColor: 'white',
         tooltipFontSize: 16
     },
     disclaimer: {
-        title: 'Disclaimer',
+        title: '免责声明',
         message: 'By using this chatbot, you agree to the <a target="_blank" href="https://flowiseai.com/terms">Terms & Condition</a>',
         textColor: 'black',
         buttonColor: '#3b82f6',
-        buttonText: 'Start Chatting',
+        buttonText: '开始聊天',
         buttonTextColor: 'white',
         blurredBackgroundColor: 'rgba(0, 0, 0, 0.4)',
         backgroundColor: 'white'
@@ -121,19 +121,19 @@ export const defaultThemeConfig = {
     chatWindow: {
         showTitle: true,
         showAgentMessages: true,
-        title: 'Flowise Bot',
+        title: 'Flowise 机器人',
         titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-        welcomeMessage: 'Hello! This is custom welcome message',
-        errorMessage: 'This is a custom error message',
+        welcomeMessage: '你好！这是自定义欢迎消息',
+        errorMessage: '这是自定义错误消息',
         backgroundColor: '#ffffff',
-        backgroundImage: 'enter image path or link',
+        backgroundImage: '输入图片路径或链接',
         height: 700,
         width: 400,
         fontSize: 16,
-        starterPrompts: ['What is a bot?', 'Who are you?'],
+        starterPrompts: ['什么是机器人？', '你是谁？'],
         starterPromptFontSize: 15,
         clearChatOnReload: false,
-        sourceDocsTitle: 'Sources:',
+        sourceDocsTitle: '来源:',
         renderHTML: true,
         botMessage: {
             backgroundColor: '#f7f8ff',
@@ -148,12 +148,12 @@ export const defaultThemeConfig = {
             avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
         },
         textInput: {
-            placeholder: 'Type your question',
+            placeholder: '输入你的问题',
             backgroundColor: '#ffffff',
             textColor: '#303235',
             sendButtonColor: '#3B81F6',
             maxChars: 50,
-            maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 50 characters.',
+            maxCharsWarningMessage: '你已超过字符限制。请输入少于50个字符。',
             autoFocus: true,
             sendMessageSound: true,
             sendSoundLocation: 'send_message.mp3',
@@ -345,15 +345,15 @@ const EmbedChat = ({ chatflowid }) => {
                     {(value === 0 || value === 1) && (
                         <>
                             <span>
-                                Paste this anywhere in the <code>{`<body>`}</code> tag of your html file.
+                                粘贴到你的html文件的 <code>{`<body>`}</code> 标签中的任意位置。
                                 <p>
-                                    You can also specify a&nbsp;
+                                    你也可以指定一个
                                     <a
                                         rel='noreferrer'
                                         target='_blank'
                                         href='https://www.npmjs.com/package/flowise-embed?activeTab=versions'
                                     >
-                                        version
+                                        版本
                                     </a>
                                     :&nbsp;<code>{`https://cdn.jsdelivr.net/npm/flowise-embed@<version>/dist/web.js`}</code>
                                 </p>
@@ -363,7 +363,7 @@ const EmbedChat = ({ chatflowid }) => {
                     )}
                     <CopyBlock theme={atomOneDark} text={getCode(codeLang)} language='javascript' showLineNumbers={false} wrapLines />
 
-                    <CheckboxInput label='Show Embed Chat Config' value={embedChatCheckboxVal} onChange={onCheckBoxEmbedChatChanged} />
+                    <CheckboxInput label='显示嵌入聊天配置' value={embedChatCheckboxVal} onChange={onCheckBoxEmbedChatChanged} />
 
                     {embedChatCheckboxVal && (
                         <CopyBlock

@@ -52,8 +52,8 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
             value,
             inputParam,
             disabled,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         setExpandDialogProps(dialogProps)
         setShowExpandDialog(true)
@@ -65,8 +65,8 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
             relativeLinksMethod,
             limit,
             selectedLinks,
-            confirmButtonName: 'Save',
-            cancelButtonName: 'Cancel'
+            confirmButtonName: '保存',
+            cancelButtonName: '取消'
         }
         setManageScrapedLinksDialogProps(dialogProps)
         setShowManageScrapedLinksDialog(true)
@@ -110,7 +110,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                         height: 25,
                                         width: 25
                                     }}
-                                    title='Expand'
+                                    title='展开'
                                     color='primary'
                                     onClick={() =>
                                         onExpandDialogClicked(data.inputs[inputParam.name] ?? inputParam.default ?? '', inputParam)
@@ -155,7 +155,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                 disabled={disabled}
                                 fileType={inputParam.fileType || '*'}
                                 onChange={(newValue) => (data.inputs[inputParam.name] = newValue)}
-                                value={data.inputs[inputParam.name] ?? inputParam.default ?? 'Choose a file to upload'}
+                                value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择要上传的文件'}
                             />
                         )}
                         {inputParam.type === 'boolean' && (
@@ -216,7 +216,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                 name={inputParam.name}
                                 options={inputParam.options}
                                 onSelect={(newValue) => handleDataChange({ inputParam, newValue })}
-                                value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                             />
                         )}
                         {inputParam.type === 'multiOptions' && (
@@ -226,7 +226,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                 name={inputParam.name}
                                 options={inputParam.options}
                                 onSelect={(newValue) => handleDataChange({ inputParam, newValue })}
-                                value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                             />
                         )}
                         {(inputParam.type === 'asyncOptions' || inputParam.type === 'asyncMultiOptions') && (
@@ -241,7 +241,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                             nodeData={data}
                                             freeSolo={inputParam.freeSolo}
                                             multiple={inputParam.type === 'asyncMultiOptions'}
-                                            value={data.inputs[inputParam.name] ?? inputParam.default ?? 'choose an option'}
+                                            value={data.inputs[inputParam.name] ?? inputParam.default ?? '选择一个选项'}
                                             onSelect={(newValue) => handleDataChange({ inputParam, newValue })}
                                             onCreateNew={() => addAsyncOption(inputParam.name)}
                                             fullWidth={true}
@@ -249,7 +249,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                     </div>
                                     {inputParam.refresh && (
                                         <IconButton
-                                            title='Refresh'
+                                            title='刷新'
                                             color='primary'
                                             size='small'
                                             onClick={() => setReloadTimestamp(Date.now().toString())}
@@ -286,7 +286,7 @@ const DocStoreInputHandler = ({ inputParam, data, disabled = false, onNodeDataCh
                                             )
                                         }
                                     >
-                                        Manage Links
+                                        管理链接
                                     </Button>
                                     <ManageScrapedLinksDialog
                                         show={showManageScrapedLinksDialog}

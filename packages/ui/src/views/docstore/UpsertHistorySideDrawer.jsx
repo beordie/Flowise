@@ -40,7 +40,7 @@ const UpsertHistorySideDrawer = ({ show, dialogProps, onClickFunction, onSelectH
         <>
             <SwipeableDrawer anchor='right' open={show} onClose={() => onClickFunction()} onOpen={onOpen}>
                 <Button startIcon={<IconSquareRoundedChevronsRight />} onClick={() => onClickFunction()}>
-                    Close
+                    关闭
                 </Button>
                 <Box style={{ width: 350, margin: 10 }} role='presentation' onClick={onClickFunction}>
                     <Timeline
@@ -62,16 +62,16 @@ const UpsertHistorySideDrawer = ({ show, dialogProps, onClickFunction, onSelectH
                                     </TimelineSeparator>
                                     <TimelineContent>
                                         {history.result.numAdded !== undefined && history.result.numAdded > 0 && (
-                                            <Box sx={{ fontWeight: 500 }}>Added: {history.result.numAdded}</Box>
+                                            <Box sx={{ fontWeight: 500 }}>已添加: {history.result.numAdded}</Box>
                                         )}
                                         {history.result.numUpdated !== undefined && history.result.numUpdated > 0 && (
-                                            <Box sx={{ fontWeight: 500 }}>Updated: {history.result.numUpdated}</Box>
+                                            <Box sx={{ fontWeight: 500 }}>已更新: {history.result.numUpdated}</Box>
                                         )}
                                         {history.result.numSkipped !== undefined && history.result.numSkipped > 0 && (
-                                            <Box sx={{ fontWeight: 500 }}>Skipped: {history.result.numSkipped}</Box>
+                                            <Box sx={{ fontWeight: 500 }}>已跳过: {history.result.numSkipped}</Box>
                                         )}
                                         {history.result.numDeleted !== undefined && history.result.numDeleted > 0 && (
-                                            <Box sx={{ fontWeight: 500 }}>Deleted: {history.result.numDeleted}</Box>
+                                            <Box sx={{ fontWeight: 500 }}>已删除: {history.result.numDeleted}</Box>
                                         )}
                                         <Button
                                             size='small'
@@ -79,7 +79,7 @@ const UpsertHistorySideDrawer = ({ show, dialogProps, onClickFunction, onSelectH
                                             variant='outlined'
                                             onClick={() => onSelectHistoryDetails(history)}
                                         >
-                                            Details
+                                            详情
                                         </Button>
                                     </TimelineContent>
                                 </TimelineItem>
@@ -93,7 +93,7 @@ const UpsertHistorySideDrawer = ({ show, dialogProps, onClickFunction, onSelectH
                                         alt='HistoryEmptySVG'
                                     />
                                 </Box>
-                                <div>No Upsert History Yet</div>
+                                <div>暂无上传历史</div>
                             </Stack>
                         )}
                     </Timeline>

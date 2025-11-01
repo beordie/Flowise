@@ -103,7 +103,7 @@ const ShowStoredChunks = () => {
             )
             if (editResp.data) {
                 enqueueSnackbar({
-                    message: 'Document chunk successfully edited!',
+                    message: '文档块编辑成功！',
                     options: {
                         key: new Date().getTime() + Math.random(),
                         variant: 'success',
@@ -120,7 +120,7 @@ const ShowStoredChunks = () => {
         } catch (error) {
             setLoading(false)
             enqueueSnackbar({
-                message: `Failed to edit chunk: ${
+                message: `编辑块失败：${
                     typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                 }`,
                 options: {
@@ -138,10 +138,10 @@ const ShowStoredChunks = () => {
 
     const onDeleteChunk = async (chunk) => {
         const confirmPayload = {
-            title: `Delete`,
-            description: `Delete chunk ${chunk.id} ? This action cannot be undone.`,
-            confirmButtonName: 'Delete',
-            cancelButtonName: 'Cancel'
+            title: `删除`,
+            description: `删除块 ${chunk.id} ？此操作无法撤销。`,
+            confirmButtonName: '删除',
+            cancelButtonName: '取消'
         }
         const isConfirmed = await confirm(confirmPayload)
 
@@ -152,7 +152,7 @@ const ShowStoredChunks = () => {
                 const delResp = await documentsApi.deleteChunkFromStore(chunk.storeId, chunk.docId, chunk.id)
                 if (delResp.data) {
                     enqueueSnackbar({
-                        message: 'Document chunk successfully deleted!',
+                        message: '文档块删除成功！',
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: 'success',
@@ -169,7 +169,7 @@ const ShowStoredChunks = () => {
             } catch (error) {
                 setLoading(false)
                 enqueueSnackbar({
-                    message: `Failed to delete chunk: ${
+                    message: `删除块失败：${
                         typeof error.response.data === 'object' ? error.response.data.message : error.response.data
                     }`,
                     options: {
@@ -298,7 +298,7 @@ const ShowStoredChunks = () => {
                                             }
                                         />
                                     </IconButton>
-                                    Showing {Math.min(start, totalChunks)}-{end} of {totalChunks} chunks
+                                    显示 {Math.min(start, totalChunks)}-{end} / {totalChunks} 个块
                                     <IconButton
                                         size='small'
                                         onClick={() => changePage(currentPage + 1)}
@@ -321,7 +321,7 @@ const ShowStoredChunks = () => {
                                 </div>
                                 <div style={{ marginRight: 20, display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                     <IconLanguage style={{ marginRight: 10 }} size={20} />
-                                    {getChunksApi.data?.characters?.toLocaleString()} characters
+                                    {getChunksApi.data?.characters?.toLocaleString()} 个字符
                                 </div>
                             </div>
                         </div>
@@ -357,7 +357,7 @@ const ShowStoredChunks = () => {
                                                 <Card>
                                                     <CardContent sx={{ p: 2 }}>
                                                         <Typography sx={{ wordWrap: 'break-word', mb: 1 }} variant='h5'>
-                                                            {`#${row.chunkNo}. Characters: ${row.pageContent.length}`}
+                                                            {`#${row.chunkNo}. 字符数: ${row.pageContent.length}`}
                                                         </Typography>
                                                         <Typography sx={{ wordWrap: 'break-word' }} variant='body2'>
                                                             {row.pageContent}
